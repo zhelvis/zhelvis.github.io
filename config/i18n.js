@@ -12,16 +12,6 @@ module.exports = {
     defaultDescription: `Gatsby example site using MDX and dependency-free i18n`,
     author: `Vladimir Zhelvis`,
   },
-  de: {
-    path: `de`,
-    locale: `de-DE`,
-    dateFormat: `DD.MM.YYYY`,
-    siteLanguage: `de`,
-    ogLanguage: `de_DE`,
-    defaultTitle: `i18n mit Gatsby nutzen`,
-    defaultDescription: `Gatsby Beispielseite, die MDX und i18n (frei von dependencies) nutzt`,
-    author: `Vladimir Zhelvis`,
-  },
   ru: {
     path: `ru`,
     locale: `ru-RU`,

@@ -1,3 +1,1 @@
-import "./src/global.css"
-
-export { wrapRootElement ,wrapPageElement } from "./src/index"
+export { wrapRootElement, wrapPageElement } from './src/index'

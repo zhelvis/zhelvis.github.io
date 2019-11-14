@@ -12,6 +12,7 @@
     "prettier": "prettier --write ./\\*\\*/*.{js,css,mdx,json}"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.22",
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",
     "@reach/router": "^1.2.1",
@@ -22,7 +23,8 @@
     "gatsby-transformer-json": "^2.2.16",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "theme-ui": "^0.2.46"
   },
   "devDependencies": {
     "husky": "^3.0.9",
