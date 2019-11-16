@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { LocaleContext } from './layout'
+import { LocaleContext } from './localeProvider'
 import locales from '../../config/i18n'
 
 // Use the globally available context to choose the right path
-const LocalizedLink = ({ to, ...props }) => {
+export const LocalizedLink = ({ to, ...props }) => {
   const { locale } = React.useContext(LocaleContext)
 
   const isIndex = to === `/`
@@ -19,5 +19,3 @@ const LocalizedLink = ({ to, ...props }) => {
 
   return <Link {...props} to={path} />
 }
-
-export default LocalizedLink

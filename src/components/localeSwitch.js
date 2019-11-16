@@ -5,7 +5,7 @@ import locales from '../../config/i18n'
 
 const prefixList = Object.keys(locales).filter(el => !locales[el].default)
 
-const LocaleSwitcher = ({ target, ...props }) => {
+export const LocaleSwitch = ({ target, ...props }) => {
   // Both functions returns path string w/o first slash
   // the cause of the solution is gatsby Link component issues
   // https://github.com/gatsbyjs/gatsby/issues/11243
@@ -34,5 +34,3 @@ const LocaleSwitcher = ({ target, ...props }) => {
     </Location>
   )
 }
-
-export default LocaleSwitcher

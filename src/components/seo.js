@@ -1,10 +1,10 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { LocaleContext } from './layout'
+import { LocaleContext } from './localeProvider'
 import locales from '../../config/i18n'
 
-const SEO = ({ description, title }) => {
+export const SEO = ({ description, title }) => {
   const { locale } = React.useContext(LocaleContext)
   const data = locales[locale]
 
@@ -42,5 +42,3 @@ const SEO = ({ description, title }) => {
     />
   )
 }
-
-export default SEO

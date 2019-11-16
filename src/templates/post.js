@@ -1,17 +1,17 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-
-import SEO from '../components/seo'
+import { Layout } from '../components/layout'
+import { SEO } from '../components/seo'
 
 const Post = ({ data: { mdx } }) => (
-  <>
+  <Layout>
     <SEO title={mdx.frontmatter.title} />
     <div className="blogpost">
       <h1>{mdx.frontmatter.title}</h1>
       <MDXRenderer>{mdx.body}</MDXRenderer>
     </div>
-  </>
+  </Layout>
 )
 
 export default Post

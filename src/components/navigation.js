@@ -1,31 +1,75 @@
-import React from 'react'
-import { useColorMode } from 'theme-ui'
+/** @jsx jsx */
+import { useColorMode, jsx } from 'theme-ui'
 
-import LocalizedLink from './localizedLink'
-import LocaleSwitcher from './localeSwitcher'
+import { LocalizedLink } from './localizedLink'
+import { LocaleSwitch } from './localeSwitch'
+import { Switch } from './switch'
 import useTranslations from './useTranslations'
+import sun from '../../assets/sun.png'
+import moon from '../../assets/moon.png'
+
+const checkedIcon = (
+  <img
+    alt="moon indicating dark mode"
+    src={moon}
+    width="16"
+    height="16"
+    role="presentation"
+    sx={{
+      pointerEvents: `none`,
+      margin: `4px`,
+    }}
+  />
+)
+
+const uncheckedIcon = (
+  <img
+    alt="sun indicating light mode"
+    src={sun}
+    width="16"
+    height="16"
+    role="presentation"
+    sx={{
+      pointerEvents: `none`,
+      margin: `4px`,
+    }}
+  />
+)
 
 const Navigation = () => {
   const { backToHome } = useTranslations()
   const [colorMode, setColorMode] = useColorMode()
+  const isDark = colorMode === `dark`
+  const toggleColorMode = e => {
+    setColorMode(isDark ? `light` : `dark`)
+  }
 
   return (
-    <nav>
+    <nav
+      sx={{
+        display: `flex`,
+        justifyContent: `space-between`,
+        alignItems: `center`,
+      }}
+    >
       <LocalizedLink to="/" aria-label={backToHome}>
         Zhelvis
       </LocalizedLink>
-      <div>
-        <LocaleSwitcher target="en">English</LocaleSwitcher>
+      <div sx={{ display: `flex` }}>
+        <LocaleSwitch target="en">EN</LocaleSwitch>
         {` `}/{` `}
-        <LocaleSwitcher target="ru">Русский</LocaleSwitcher>
+        <LocaleSwitch target="ru">RU</LocaleSwitch>
+        <Switch
+          aria-label="Toggle dark mode"
+          checkedIcon={checkedIcon}
+          uncheckedIcon={uncheckedIcon}
+          checked={isDark}
+          onChange={toggleColorMode}
+          sx={{
+            bg: `black`,
+          }}
+        />
       </div>
-      <button
-        onClick={e => {
-          setColorMode(colorMode === 'default' ? 'dark' : 'default')
-        }}
-      >
-        Toggle {colorMode === 'default' ? 'Dark' : 'Light'}
-      </button>
     </nav>
   )
 }
