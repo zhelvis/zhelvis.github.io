@@ -18,7 +18,6 @@ export default {
   prism,
   // custom props
   navlink: {
-    textTransform: 'uppercase',
     color: 'inherit',
     textDecoration: 'none',
     '&.active': {

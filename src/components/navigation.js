@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 
-import { LocalizedLink } from './localizedLink'
+import { NavLink } from './navLink'
 import { LocaleSwitch } from './localeSwitch'
 import { ColorModeSwitch } from './colorModeSwitch'
 import useTranslations from './useTranslations'
@@ -16,9 +16,9 @@ export const Navigation = () => {
         alignItems: `center`,
       }}
     >
-      <LocalizedLink to="/" aria-label={backToHome}>
+      <NavLink to="/" aria-label={backToHome}>
         Zhelvis
-      </LocalizedLink>
+      </NavLink>
       <div sx={{ display: `flex` }}>
         <LocaleSwitch target="en">EN</LocaleSwitch>
         {` `}/{` `}

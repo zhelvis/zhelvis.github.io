@@ -1,4 +1,5 @@
-import React from 'react'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import { Link } from 'gatsby'
 import { Location } from '@reach/router'
 import locales from '../../config/i18n'
@@ -29,7 +30,12 @@ export const LocaleSwitch = ({ target, ...props }) => {
   return (
     <Location>
       {({ location }) => (
-        <Link {...props} to={`/${getTargetPath(location.pathname)}`} />
+        <Link
+          {...props}
+          sx={{ variant: 'navlink' }}
+          activeClassName="active"
+          to={`/${getTargetPath(location.pathname)}`}
+        />
       )}
     </Location>
   )

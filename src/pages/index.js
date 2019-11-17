@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Layout } from '../components/layout'
-import { LocalizedLink } from '../components/localizedLink'
+import { AppLink } from '../components/AppLink'
 import { SEO } from '../components/seo'
 import useTranslations from '../components/useTranslations'
 
@@ -13,13 +13,14 @@ const Index = ({ data: { allMdx } }) => {
       <SEO />
       <h1>{hello}</h1>
       <p>{subline}</p>
+      <AppLink to="https://www.example.com">https://www.example.com</AppLink>
       <hr style={{ margin: `2rem 0` }} />
       <ul className="post-list">
         {allMdx.edges.map(({ node: post }) => (
           <li key={`${post.frontmatter.title}-${post.fields.locale}`}>
-            <LocalizedLink to={`/${post.parent.relativeDirectory}`}>
+            <AppLink to={`/${post.parent.relativeDirectory}`}>
               {post.frontmatter.title}
-            </LocalizedLink>
+            </AppLink>
             <div>{post.frontmatter.date}</div>
           </li>
         ))}
