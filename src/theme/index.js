@@ -1,5 +1,3 @@
-import merge from 'deepmerge'
-// import typography from "./typography"
 import colors from './colors'
 import styles from './styles'
 import prism from './prism'
@@ -18,4 +16,13 @@ export default {
   },
   styles,
   prism,
+  // custom props
+  navlink: {
+    textTransform: 'uppercase',
+    color: 'inherit',
+    textDecoration: 'none',
+    '&.active': {
+      color: 'primary',
+    },
+  },
 }

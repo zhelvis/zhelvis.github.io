@@ -34,6 +34,7 @@ const query = graphql`
             hello
             subline
             backToHome
+            toggleDarkMode
           }
         }
       }
