@@ -1,21 +1,12 @@
-const purple60 = `#663399`
-const purple30 = `#D9BAE8`
-const grey90 = `#232129`
-const black80 = `#1B1F23`
-const white = `#fff`
-const lightWhite = `rgba(255, 255, 255, 0.86)`
-const opaqueLightYellow = `rgba(255, 229, 100, 0.2)`
-const opaqueLightWhite = `hsla(0, 0%, 100%, 0.2)`
-const lightGray = `hsla(0, 0%, 0%, 0.2)`
-
 export default {
-  text: grey90,
-  background: white,
-  primary: purple60,
-  secondary: black80,
-  muted: lightGray,
-  highlight: opaqueLightYellow,
-  heading: grey90,
+  text: 'hsl(10, 20%, 20%)',
+  background: 'hsl(10, 10%, 98%)',
+  primary: 'hsl(10, 80%, 50%)',
+  secondary: 'hsl(10, 60%, 50%)',
+  highlight: 'hsl(10, 40%, 90%)',
+  purple: 'hsl(250, 60%, 30%)',
+  muted: 'hsl(10, 20%, 94%)',
+  gray: 'hsl(10, 20%, 50%)',
   prism: {
     background: `#011627`,
     comment: `#809393`,
@@ -33,13 +24,14 @@ export default {
   },
   modes: {
     dark: {
-      text: lightWhite,
-      background: grey90,
-      primary: purple30,
-      secondary: lightWhite,
-      muted: opaqueLightWhite,
-      highlight: purple60,
-      heading: white,
+      text: 'hsl(210, 50%, 96%)',
+      background: 'hsl(230, 25%, 18%)',
+      primary: 'hsl(260, 100%, 80%)',
+      secondary: 'hsl(290, 100%, 80%)',
+      highlight: 'hsl(260, 20%, 40%)',
+      purple: 'hsl(290, 100%, 80%)',
+      muted: 'hsla(230, 20%, 0%, 20%)',
+      gray: 'hsl(210, 50%, 60%)',
     },
   },
 }

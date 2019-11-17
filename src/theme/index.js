@@ -11,9 +11,6 @@ export default {
     heading: `inherit`,
     monospace: `Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace`,
   },
-  sizes: {
-    container: 672,
-  },
   styles,
   prism,
   // custom props

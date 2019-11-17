@@ -17,12 +17,14 @@ export const Navigation = () => {
       }}
     >
       <NavLink to="/" aria-label={backToHome}>
-        Zhelvis
+        <h3>Zhelvis</h3>
       </NavLink>
-      <div sx={{ display: `flex` }}>
-        <LocaleSwitch target="en">EN</LocaleSwitch>
-        {` `}/{` `}
-        <LocaleSwitch target="ru">RU</LocaleSwitch>
+      <div sx={{ display: `flex`, alignItems: `center` }}>
+        <div sx={{ px: 2 }}>
+          <LocaleSwitch target="en">EN</LocaleSwitch>
+          {` `}/{` `}
+          <LocaleSwitch target="ru">RU</LocaleSwitch>
+        </div>
         <ColorModeSwitch />
       </div>
     </nav>

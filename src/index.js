@@ -24,16 +24,21 @@ export const wrapPageElement = ({ element, props }) => (
   <LocaleProvider {...props}>
     <div className="global-wrapper">
       <header
-        sx={
-          {
-            /* position: `fixed`,*/
-          }
-        }
+        sx={{
+          px: `5vw`,
+          py: 3,
+        }}
         className="global-header"
       >
         <Navigation />
       </header>
-      <main>{element}</main>
+      <main
+        sx={{
+          px: `5vw`,
+        }}
+      >
+        {element}
+      </main>
     </div>
   </LocaleProvider>
 )
