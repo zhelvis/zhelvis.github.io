@@ -9,7 +9,8 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "start": "npm run develop",
-    "prettier": "prettier --write ./\\*\\*/*.{js,css,mdx,json}"
+    "prettier": "prettier --write ./\\*\\*/*.{js,css,mdx,json}",
+    "deploy": "gatsby build && gh-pages -d public -b master"
   },
   "dependencies": {
     "@emotion/core": "^10.0.22",
