@@ -18,14 +18,21 @@ exports.onCreatePage = ({ page, actions }) => {
     // Use the values defined in "locales" to construct the path
     const localizedPath = locales[lang].default
       ? page.path
-      : `${locales[lang].path}${page.path}`
+      : `/${locales[lang].path}${page.path}`
 
+    const validPath = removeTrailingSlash(localizedPath)
+
+    console.log(validPath)
     return createPage({
       // Pass on everything from the original page
       ...page,
       // Since page.path returns with a trailing slash (e.g. "/de/")
       // We want to remove that
-      path: removeTrailingSlash(localizedPath),
+      path: validPath,
+      // for 404 prefixed pages
+      matchPath: /^\/[a-z]{2}\/404$/.test(validPath)
+        ? `${locales[lang].path}/*`
+        : undefined,
       // Pass in the locale as context to every page
       // This context also gets passed to the src/components/layout file
       // This should ensure that the locale is available on every page

@@ -35,6 +35,11 @@ const query = graphql`
             subline
             backToHome
             toggleDarkMode
+            notFound {
+              title
+              description
+              content
+            }
           }
         }
       }
