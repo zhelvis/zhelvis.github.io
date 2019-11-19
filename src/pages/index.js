@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Layout } from '../components/layout'
 import { AppLink } from '../components/AppLink'
 import { SEO } from '../components/seo'
 import useTranslations from '../components/useTranslations'
@@ -9,7 +8,7 @@ const Index = ({ data: { allMdx } }) => {
   const { hello, subline } = useTranslations()
 
   return (
-    <Layout>
+    <>
       <SEO />
       <h1>{hello}</h1>
       <p>{subline}</p>
@@ -25,7 +24,7 @@ const Index = ({ data: { allMdx } }) => {
           </li>
         ))}
       </ul>
-    </Layout>
+    </>
   )
 }
 

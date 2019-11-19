@@ -15,10 +15,23 @@ export default {
   prism,
   // custom props
   navlink: {
-    color: 'inherit',
-    textDecoration: 'none',
+    color: `inherit`,
+    textDecoration: `none`,
     '&.active': {
-      color: 'primary',
+      display: `inline-block` /* For IE11/ MS Edge bug */,
+      pointerEvents: `none`,
+      color: `primary`,
     },
+  },
+  header: {
+    display: `flex`,
+    alignItems: `center`,
+    width: `90vw`,
+    height: `3.5em`,
+    position: `fixed`,
+    px: `5vw`,
+    backgroundColor: `background`,
+    borderBottom: `1px solid`,
+    borderColor: `highlight`,
   },
 }

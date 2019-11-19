@@ -1,11 +1,10 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
+import React from 'react'
 import { ThemeProvider, Styled, ColorMode } from 'theme-ui'
 import Prism from '@theme-ui/prism'
 import theme from './theme/index'
 import { LocaleProvider } from './components/localeProvider'
 import { MdxLink } from './components/mdxLink'
-import { Navigation } from './components/navigation'
+import { Layout } from './components/layout'
 
 const components = {
   pre: ({ children }) => <>{children}</>,
@@ -22,23 +21,6 @@ export const wrapRootElement = ({ element }) => (
 // Pass all props (hence the ...props) to the layout component so it has access to things like pageContext or location
 export const wrapPageElement = ({ element, props }) => (
   <LocaleProvider {...props}>
-    <div className="global-wrapper">
-      <header
-        sx={{
-          px: `5vw`,
-          py: 3,
-        }}
-        className="global-header"
-      >
-        <Navigation />
-      </header>
-      <main
-        sx={{
-          px: `5vw`,
-        }}
-      >
-        {element}
-      </main>
-    </div>
+    <Layout>{element}</Layout>
   </LocaleProvider>
 )
