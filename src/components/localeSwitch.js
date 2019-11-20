@@ -13,7 +13,6 @@ export const LocaleSwitch = ({ target, ...props }) => {
 
   const getDefaultPath = path => {
     let pathArr = path.split('/')
-    console.log(`switcher: ${pathArr}`)
     if (prefixList.includes(pathArr[1])) {
       pathArr.splice(0, 2)
     } else {
@@ -25,7 +24,9 @@ export const LocaleSwitch = ({ target, ...props }) => {
   const getTargetPath = path => {
     const to = getDefaultPath(path)
     const isIndex = to === ``
-    return locales[target].default ? to : `${target}${isIndex ? `` : `/${to}`}`
+    return locales[target].default
+      ? to
+      : `${target}${isIndex ? `/` : `/${to}/`}`
   }
 
   return (
@@ -35,7 +36,7 @@ export const LocaleSwitch = ({ target, ...props }) => {
           {...props}
           sx={{ variant: 'navlink' }}
           activeClassName="active"
-          to={`/${getTargetPath(location.pathname)}/`}
+          to={`/${getTargetPath(location.pathname)}`}
         />
       )}
     </Location>

@@ -1,4 +1,7 @@
 module.exports = {
+  siteMetadata: {
+    siteUrl: 'https://zhelvis.github.io/',
+  },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
