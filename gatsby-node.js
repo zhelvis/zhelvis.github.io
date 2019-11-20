@@ -1,10 +1,6 @@
 const path = require(`path`)
 const locales = require(`./config/i18n`)
-const {
-  localizedSlug,
-  findKey,
-  removeTrailingSlash,
-} = require(`./src/utils/gatsby-node-helpers`)
+const { localizedSlug, findKey } = require(`./src/utils/gatsby-node-helpers`)
 
 exports.onCreatePage = ({ page, actions }) => {
   const { createPage, deletePage } = actions
@@ -20,18 +16,13 @@ exports.onCreatePage = ({ page, actions }) => {
       ? page.path
       : `/${locales[lang].path}${page.path}`
 
-    const validPath = removeTrailingSlash(localizedPath)
-
-    console.log(validPath)
     return createPage({
       // Pass on everything from the original page
       ...page,
-      // Since page.path returns with a trailing slash (e.g. "/de/")
-      // We want to remove that
-      path: validPath,
+      path: localizedPath,
       // for 404 prefixed pages
-      matchPath: /^\/[a-z]{2}\/404$/.test(validPath)
-        ? `${locales[lang].path}/*`
+      matchPath: /^\/[a-z]{2}\/404\/$/.test(localizedPath)
+        ? `/${locales[lang].path}/*`
         : undefined,
       // Pass in the locale as context to every page
       // This context also gets passed to the src/components/layout file
