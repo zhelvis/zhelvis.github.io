@@ -17,5 +17,11 @@ module.exports = {
     `gatsby-plugin-mdx`,
     `gatsby-transformer-json`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
   ],
 }
