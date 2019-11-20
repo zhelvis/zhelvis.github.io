@@ -34,4 +34,18 @@ export default {
     borderBottom: `1px solid`,
     borderColor: `highlight`,
   },
+  buttons: {
+    primary: {
+      color: 'background',
+      bg: 'primary',
+    },
+    secondary: {
+      color: 'background',
+      bg: 'secondary',
+    },
+    gray: {
+      color: 'background',
+      bg: 'gray',
+    },
+  },
 }

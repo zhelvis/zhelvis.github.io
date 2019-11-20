@@ -1,30 +1,65 @@
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import React from 'react'
 import { graphql } from 'gatsby'
 import { AppLink } from '../components/AppLink'
 import { SEO } from '../components/seo'
+import { Button } from '../components/button'
 import useTranslations from '../components/useTranslations'
 
 const Index = ({ data: { allMdx } }) => {
   const { hello, subline } = useTranslations()
 
   return (
-    <>
+    <React.Fragment>
       <SEO />
-      <h1>{hello}</h1>
-      <p>{subline}</p>
-      <AppLink to="https://www.example.com">https://www.example.com</AppLink>
+      <div sx={{ py: 3 }}>
+        <h1 sx={{ fontSize: `3em` }}>{hello}</h1>
+        <p sx={{ fontSize: `1.5em` }}>{subline}</p>
+        <Button variant="gray">About</Button>
+        <Button variant="gray">Blog</Button>
+      </div>
       <hr style={{ margin: `2rem 0` }} />
-      <ul className="post-list">
+      <ul
+        className="post-list"
+        sx={{
+          listStyle: 'none',
+          m: 0,
+          px: 3,
+          py: 4,
+        }}
+      >
         {allMdx.edges.map(({ node: post }) => (
-          <li key={`${post.frontmatter.title}-${post.fields.locale}`}>
-            <AppLink to={`/${post.parent.relativeDirectory}`}>
-              {post.frontmatter.title}
-            </AppLink>
-            <div>{post.frontmatter.date}</div>
+          <li
+            key={`${post.frontmatter.title}-${post.fields.locale}`}
+            sx={{
+              mb: 4,
+            }}
+          >
+            <h2
+              sx={{
+                m: 0,
+              }}
+            >
+              <AppLink
+                to={`/${post.parent.relativeDirectory}`}
+                sx={{
+                  color: 'inherit',
+                  textDecoration: 'none',
+                  ':hover,:focus': {
+                    color: 'primary',
+                    textDecoration: 'underline',
+                  },
+                }}
+              >
+                {post.frontmatter.title}
+              </AppLink>
+            </h2>
+            <small sx={{ fontWeight: 'bold' }}>{post.frontmatter.date}</small>
           </li>
         ))}
       </ul>
-    </>
+    </React.Fragment>
   )
 }
 
