@@ -11,6 +11,7 @@ const NotFound = () => {
         title={`404: ${notFound.title}`}
         description={notFound.description}
       />
+      <h1>404</h1>
       <p>{notFound.content}</p>
     </>
   )

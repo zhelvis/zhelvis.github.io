@@ -8,8 +8,8 @@ module.exports = {
     dateFormat: `DD/MM/YYYY`,
     siteLanguage: `en`,
     ogLanguage: `en_US`,
-    defaultTitle: `Using i18n with Gatsby`,
-    defaultDescription: `Gatsby example site using MDX and dependency-free i18n`,
+    defaultTitle: `Zhelvis`,
+    defaultDescription: `My personal site`,
     author: `Vladimir Zhelvis`,
   },
   ru: {
@@ -18,8 +18,8 @@ module.exports = {
     dateFormat: `DD.MM.YYYY`,
     siteLanguage: `ru`,
     ogLanguage: `ru_RU`,
-    defaultTitle: `Использование i18n с Gatsby`,
-    defaultDescription: `Пример сайта на Gatsby с использованием MDX и i18n (без зависимостей)`,
+    defaultTitle: `Zhelvis`,
+    defaultDescription: `Мой личный сайт`,
     author: `Владимир Жельвис`,
   },
 }
