@@ -15,7 +15,7 @@ export const Layout = ({ children }) => {
         sx={{
           display: `block`,
           pt: headerHeight,
-          px: `5vw`,
+          px: `10vw`,
         }}
       >
         {children}

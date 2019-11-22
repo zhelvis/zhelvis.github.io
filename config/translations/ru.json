@@ -1,6 +1,10 @@
 {
   "hello": "Владимир Жельвис",
   "subline": "Full stack веб-разработчик. Живу и работаю в Москве",
+  "aboutMe": "Обо мне",
+  "blog": "Блог",
+  "phone": "Телефон",
+  "contacts": "Контакты",
   "backToHome": "Домой",
   "toggleDarkMode": "Переключить темный режим",
   "notFound": {

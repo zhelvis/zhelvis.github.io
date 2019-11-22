@@ -33,6 +33,10 @@ const query = graphql`
           translations: childTranslationsJson {
             hello
             subline
+            aboutMe
+            blog
+            phone
+            contacts
             backToHome
             toggleDarkMode
             notFound {

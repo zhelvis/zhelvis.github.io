@@ -4,61 +4,49 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { AppLink } from '../components/AppLink'
 import { SEO } from '../components/seo'
-import { Button } from '../components/button'
 import useTranslations from '../components/useTranslations'
+import { LinkDivider } from '../components/linkDivider'
 
-const Index = ({ data: { allMdx } }) => {
-  const { hello, subline } = useTranslations()
+const Index = ({
+  data: {
+    site: {
+      siteMetadata: { author },
+    },
+  },
+}) => {
+  const { hello, subline, aboutMe, blog, phone, contacts } = useTranslations()
 
   return (
     <React.Fragment>
       <SEO />
-      <div sx={{ py: 3 }}>
-        <h1 sx={{ fontSize: `3em` }}>{hello}</h1>
-        <p sx={{ fontSize: `1.5em` }}>{subline}</p>
-        <Button variant="gray">About</Button>
-        <Button variant="gray">Blog</Button>
+      <div sx={{ py: 4, fontSize: `1.5em` }}>
+        <h1>{hello}</h1>
+        <p>{subline}</p>
+        <AppLink sx={{ mr: 2 }} to="/about">
+          {aboutMe}
+        </AppLink>{' '}
+        <AppLink to="/blog">{blog}</AppLink>
       </div>
-      <hr style={{ margin: `2rem 0` }} />
-      <ul
-        className="post-list"
-        sx={{
-          listStyle: 'none',
-          m: 0,
-          px: 3,
-          py: 4,
-        }}
-      >
-        {allMdx.edges.map(({ node: post }) => (
-          <li
-            key={`${post.frontmatter.title}-${post.fields.locale}`}
-            sx={{
-              mb: 4,
-            }}
-          >
-            <h2
-              sx={{
-                m: 0,
-              }}
-            >
-              <AppLink
-                to={`/${post.parent.relativeDirectory}`}
-                sx={{
-                  color: 'inherit',
-                  textDecoration: 'none',
-                  ':hover,:focus': {
-                    color: 'primary',
-                    textDecoration: 'underline',
-                  },
-                }}
-              >
-                {post.frontmatter.title}
-              </AppLink>
-            </h2>
-            <small sx={{ fontWeight: 'bold' }}>{post.frontmatter.date}</small>
-          </li>
-        ))}
-      </ul>
+      <div sx={{ pb: 4, fontSize: `1.2em` }}>
+        <h2>{contacts}</h2>
+        <p>
+          Email: <AppLink to={`mailto:${author.email}`}>{author.email}</AppLink>
+        </p>
+        <p>
+          {`${phone}: `}
+          <AppLink to={`tel:${author.phone}`}>{author.phone}</AppLink>
+        </p>
+        <AppLink to={author.telegram}>Telegram</AppLink>
+        <LinkDivider />
+        <AppLink to={author.vk}>VK</AppLink>
+        <LinkDivider />
+        <AppLink to={author.github}>Github</AppLink>
+      </div>
+      {/*
+      <div sx={{ fontSize: `1.2em` }}>
+        <h2>projects</h2>
+      </div>
+      */}
     </React.Fragment>
   )
 }
@@ -66,25 +54,15 @@ const Index = ({ data: { allMdx } }) => {
 export default Index
 
 export const query = graphql`
-  query Index($locale: String!, $dateFormat: String!) {
-    allMdx(
-      filter: { fields: { locale: { eq: $locale } } }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            date(formatString: $dateFormat)
-          }
-          fields {
-            locale
-          }
-          parent {
-            ... on File {
-              relativeDirectory
-            }
-          }
+  query Index {
+    site {
+      siteMetadata {
+        author {
+          telegram
+          github
+          vk
+          email
+          phone
         }
       }
     }

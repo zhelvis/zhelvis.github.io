@@ -1,6 +1,10 @@
 {
   "hello": "Vladimir Zhelvis",
-  "subline": "Full stack web developer. Based in Moskow",
+  "subline": "Full stack web developer. Based in Moscow",
+  "aboutMe": "About",
+  "blog": "Blog",
+  "phone": "Phone",
+  "contacts": "Contacts",
   "backToHome": "Back to home",
   "toggleDarkMode": "Toggle dark mode",
   "notFound": {

@@ -26,10 +26,10 @@ export default {
   header: {
     display: `flex`,
     alignItems: `center`,
-    width: `90vw`,
+    width: `80vw`,
     height: `3.5em`,
     position: `fixed`,
-    px: `5vw`,
+    px: `10vw`,
     backgroundColor: `background`,
     borderBottom: `1px solid`,
     borderColor: `highlight`,

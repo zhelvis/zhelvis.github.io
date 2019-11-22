@@ -28,6 +28,10 @@ export default {
   },
   a: {
     color: `primary`,
+    textDecoration: `none`,
+    ':hover': {
+      textDecoration: `underline`,
+    },
   },
   hr: {
     borderColor: `muted`,

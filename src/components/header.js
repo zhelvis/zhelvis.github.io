@@ -4,6 +4,7 @@ import { jsx } from 'theme-ui'
 import { NavLink } from './navLink'
 import { LocaleSwitch } from './localeSwitch'
 import { ColorModeSwitch } from './colorModeSwitch'
+import { linkDivider, LinkDivider } from './linkDivider'
 import useTranslations from './useTranslations'
 
 export const Header = () => {
@@ -22,7 +23,7 @@ export const Header = () => {
       <div sx={{ display: `flex`, alignItems: `center` }}>
         <div sx={{ px: 2 }}>
           <LocaleSwitch target="en">EN</LocaleSwitch>
-          {` `}/{` `}
+          <LinkDivider />
           <LocaleSwitch target="ru">RU</LocaleSwitch>
         </div>
         <ColorModeSwitch />
