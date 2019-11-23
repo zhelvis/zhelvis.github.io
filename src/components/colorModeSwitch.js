@@ -45,6 +45,7 @@ export const ColorModeSwitch = () => {
   return (
     <Switch
       aria-label={toggleDarkMode}
+      aria-checked={isDark}
       checkedIcon={checkedIcon}
       uncheckedIcon={uncheckedIcon}
       checked={isDark}

@@ -1,12 +1,22 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-
+import { useStaticQuery, graphql } from 'gatsby'
 import { LocaleContext } from './localeProvider'
 import locales from '../../config/i18n'
 
 export const SEO = ({ description, title }) => {
   const { locale } = React.useContext(LocaleContext)
   const data = locales[locale]
+
+  const { site } = useStaticQuery(graphql`
+    query HeaderQuery {
+      site {
+        siteMetadata {
+          siteUrl
+        }
+      }
+    }
+  `)
 
   const pageTitle = title || data.defaultTitle
   const metaDescription = description || data.defaultDescription
@@ -29,6 +39,10 @@ export const SEO = ({ description, title }) => {
         {
           property: `og:description`,
           content: metaDescription,
+        },
+        {
+          property: `og:image`,
+          content: `${site.siteMetadata.siteUrl}/link-image.jpg`,
         },
         {
           property: `og:type`,

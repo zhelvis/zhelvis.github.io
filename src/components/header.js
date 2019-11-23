@@ -21,7 +21,7 @@ export const Header = () => {
       </NavLink>
       <div sx={{ mx: 'auto' }} />
       <div sx={{ display: `flex`, alignItems: `center` }}>
-        <div sx={{ px: 2 }}>
+        <div sx={{ px: 4 }}>
           <LocaleSwitch target="en">EN</LocaleSwitch>
           <LinkDivider />
           <LocaleSwitch target="ru">RU</LocaleSwitch>

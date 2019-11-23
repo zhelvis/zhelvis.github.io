@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://zhelvis.github.io/',
+    siteUrl: 'https://zhelvis.github.io',
     author: {
       telegram: 'https://t.me/zhelvis',
       github: 'https://github.com/zhelvis',
@@ -31,6 +31,18 @@ module.exports = {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         policy: [{ userAgent: '*', disallow: '/' }],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Vladimir Zhelvis`,
+        short_name: `Zhelvis`,
+        start_url: `/`,
+        background_color: `hsl(10,10%,98%)`,
+        theme_color: `hsl(10,20%,20%)`,
+        display: `minimal-ui`,
+        icon: `assets/icon.png`,
       },
     },
   ],
