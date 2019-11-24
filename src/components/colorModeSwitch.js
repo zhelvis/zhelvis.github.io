@@ -3,8 +3,8 @@ import { useColorMode, jsx } from 'theme-ui'
 
 import { Switch } from './switch'
 import useTranslations from './useTranslations'
-import sun from '../../assets/sun.png'
-import moon from '../../assets/moon.png'
+import sun from '../images/sun.png'
+import moon from '../images/moon.png'
 
 const checkedIcon = (
   <img

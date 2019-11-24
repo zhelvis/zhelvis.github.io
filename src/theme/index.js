@@ -1,6 +1,8 @@
 import colors from './colors'
 import styles from './styles'
+import components from './components'
 import prism from './prism'
+import typography from './typography'
 
 export default {
   useCustomProperties: false,
@@ -11,41 +13,15 @@ export default {
     heading: `inherit`,
     monospace: `Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace`,
   },
+  lineHeights: {
+    body: 1.625,
+    heading: 1.25,
+  },
+  sizes: {
+    container: 768,
+  },
   styles,
   prism,
-  // custom props
-  navlink: {
-    color: `inherit`,
-    textDecoration: `none`,
-    '&.active': {
-      display: `inline-block` /* For IE11/ MS Edge bug */,
-      pointerEvents: `none`,
-      color: `primary`,
-    },
-  },
-  header: {
-    display: `flex`,
-    alignItems: `center`,
-    width: `80vw`,
-    height: `3.5em`,
-    position: `fixed`,
-    px: `10vw`,
-    backgroundColor: `background`,
-    borderBottom: `1px solid`,
-    borderColor: `highlight`,
-  },
-  buttons: {
-    primary: {
-      color: 'background',
-      bg: 'primary',
-    },
-    secondary: {
-      color: 'background',
-      bg: 'secondary',
-    },
-    gray: {
-      color: 'background',
-      bg: 'gray',
-    },
-  },
+  ...typography,
+  ...components,
 }

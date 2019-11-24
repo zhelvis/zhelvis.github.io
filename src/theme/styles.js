@@ -1,6 +1,30 @@
+const heading = {
+  fontFamily: 'heading',
+  lineHeight: 'heading',
+}
+
 export default {
   root: {
     fontFamily: `body`,
+    lineHeight: 'body',
+  },
+  h1: {
+    ...heading,
+  },
+  h2: {
+    ...heading,
+  },
+  h3: {
+    ...heading,
+  },
+  h4: {
+    ...heading,
+  },
+  h5: {
+    ...heading,
+  },
+  h6: {
+    ...heading,
   },
   pre: {
     variant: `prism`,

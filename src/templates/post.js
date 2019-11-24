@@ -1,16 +1,18 @@
+/** @jsx jsx */
+import { jsx, Styled } from 'theme-ui'
 import React from 'react'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { SEO } from '../components/seo'
 
 const Post = ({ data: { mdx } }) => (
-  <>
+  <React.Fragment>
     <SEO title={mdx.frontmatter.title} />
-    <div className="blogpost">
-      <h1>{mdx.frontmatter.title}</h1>
+    <div sx={{ maxWidth: 'container' }} className="blogpost">
+      <Styled.h1>{mdx.frontmatter.title}</Styled.h1>
       <MDXRenderer>{mdx.body}</MDXRenderer>
     </div>
-  </>
+  </React.Fragment>
 )
 
 export default Post

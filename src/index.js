@@ -7,7 +7,7 @@ import { MdxLink } from './components/mdxLink'
 import { Layout } from './components/layout'
 
 const components = {
-  pre: ({ children }) => <div style={{ maxWidth: 640 }}>{children}</div>,
+  pre: ({ children }) => <>{children}</>,
   code: Prism,
   a: MdxLink,
 }

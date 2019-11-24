@@ -4,7 +4,7 @@ import { jsx } from 'theme-ui'
 import { NavLink } from './navLink'
 import { LocaleSwitch } from './localeSwitch'
 import { ColorModeSwitch } from './colorModeSwitch'
-import { linkDivider, LinkDivider } from './linkDivider'
+import { LinkDivider } from './linkDivider'
 import useTranslations from './useTranslations'
 
 export const Header = () => {

@@ -13,6 +13,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         path: `${__dirname}/config/translations`,
         name: `translations`,
       },
@@ -42,7 +51,7 @@ module.exports = {
         background_color: `hsl(10,10%,98%)`,
         theme_color: `hsl(10,20%,20%)`,
         display: `minimal-ui`,
-        icon: `assets/icon.png`,
+        icon: `src/images/icon.png`,
       },
     },
   ],

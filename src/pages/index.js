@@ -1,11 +1,11 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
+import { jsx, Styled } from 'theme-ui'
 import React from 'react'
 import { graphql } from 'gatsby'
 import { AppLink } from '../components/AppLink'
 import { SEO } from '../components/seo'
-import useTranslations from '../components/useTranslations'
 import { LinkDivider } from '../components/linkDivider'
+import useTranslations from '../components/useTranslations'
 
 const Index = ({
   data: {
@@ -19,16 +19,16 @@ const Index = ({
   return (
     <React.Fragment>
       <SEO />
-      <div sx={{ py: 4, fontSize: `1.5em` }}>
-        <h1>{hello}</h1>
+      <div sx={{ py: 4, fontSize: `1.5rem` }}>
+        <Styled.h1>{hello}</Styled.h1>
         <p>{subline}</p>
         <AppLink sx={{ mr: 2 }} to="/about">
           {aboutMe}
         </AppLink>{' '}
         <AppLink to="/blog">{blog}</AppLink>
       </div>
-      <div sx={{ pb: 4, fontSize: `1.2em` }}>
-        <h2>{contacts}</h2>
+      <div sx={{ pb: 4, fontSize: `1.2rem` }}>
+        <Styled.h2>{contacts}</Styled.h2>
         <p>
           Email: <AppLink to={`mailto:${author.email}`}>{author.email}</AppLink>
         </p>

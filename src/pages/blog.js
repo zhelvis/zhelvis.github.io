@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
+import { jsx, Styled } from 'theme-ui'
 import React from 'react'
 import { graphql } from 'gatsby'
 import { AppLink } from '../components/AppLink'
@@ -12,6 +12,7 @@ const Blog = ({ data: { allMdx } }) => {
   return (
     <React.Fragment>
       <SEO />
+      <Styled.h1>Blog</Styled.h1>
       <ul
         className="post-list"
         sx={{
@@ -28,7 +29,7 @@ const Blog = ({ data: { allMdx } }) => {
               mb: 4,
             }}
           >
-            <h2
+            <Styled.h2
               sx={{
                 m: 0,
               }}
@@ -36,7 +37,7 @@ const Blog = ({ data: { allMdx } }) => {
               <AppLink to={`/blog/${post.parent.relativeDirectory}`}>
                 {post.frontmatter.title}
               </AppLink>
-            </h2>
+            </Styled.h2>
             <small sx={{ fontWeight: 'bold' }}>{post.frontmatter.date}</small>
           </li>
         ))}

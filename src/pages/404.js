@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
+import { jsx, Styled } from 'theme-ui'
 import React from 'react'
 import { SEO } from '../components/seo'
 import useTranslations from '../components/useTranslations'
@@ -13,7 +13,7 @@ const NotFound = () => {
         title={`404: ${notFound.title}`}
         description={notFound.description}
       />
-      <h1 sx={{ fontSize: `3em` }}>404</h1>
+      <Styled.h1 sx={{ fontSize: `3em` }}>404</Styled.h1>
       <p>{notFound.content}</p>
     </React.Fragment>
   )
