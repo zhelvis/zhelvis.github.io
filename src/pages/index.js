@@ -5,6 +5,7 @@ import { graphql } from 'gatsby'
 import { AppLink } from '../components/AppLink'
 import { SEO } from '../components/seo'
 import { LinkDivider } from '../components/linkDivider'
+import { T2chIcon } from '../components/icons'
 import useTranslations from '../components/useTranslations'
 
 const Index = ({
@@ -14,26 +15,25 @@ const Index = ({
     },
   },
 }) => {
-  const { hello, subline, about, blog, phone, contacts } = useTranslations()
-
+  const { index, about, blog } = useTranslations()
   return (
     <React.Fragment>
       <SEO />
       <div sx={{ py: 4, fontSize: `1.5rem` }}>
-        <Styled.h1>{hello}</Styled.h1>
-        <p>{subline}</p>
+        <Styled.h1>{index.hello}</Styled.h1>
+        <p>{index.subline}</p>
         <AppLink sx={{ mr: 2 }} to="/about">
           {about.title}
         </AppLink>{' '}
         <AppLink to="/blog">{blog.title}</AppLink>
       </div>
-      <div sx={{ pb: 4, fontSize: `1.2rem` }}>
-        <Styled.h2>{contacts}</Styled.h2>
+      <div sx={{ pb: 4, maxWidth: `container`, fontSize: `1.2rem` }}>
+        <Styled.h2>{index.contacts}</Styled.h2>
         <p>
           Email: <AppLink to={`mailto:${author.email}`}>{author.email}</AppLink>
         </p>
         <p>
-          {`${phone}: `}
+          {`${index.phone}: `}
           <AppLink to={`tel:${author.phone}`}>{author.phone}</AppLink>
         </p>
         <AppLink to={author.telegram}>Telegram</AppLink>
@@ -42,11 +42,25 @@ const Index = ({
         <LinkDivider />
         <AppLink to={author.github}>Github</AppLink>
       </div>
-      {/*
-      <div sx={{ fontSize: `1.2em` }}>
-        <h2>projects</h2>
+      <div sx={{ pb: 6, maxWidth: `container`, fontSize: `1.2em` }}>
+        <Styled.h2>{index.projects.title}</Styled.h2>
+        <div
+          sx={{
+            display: `flex`,
+            alignItems: `center`,
+          }}
+        >
+          <div sx={{ maxWidth: 96 }}>
+            <T2chIcon sx={{ width: `100%`, heght: `100%`, fill: `text` }} />
+          </div>
+          <div sx={{ ml: 3 }}>
+            <Styled.h3 sx={{ m: 0 }}>
+              <AppLink to="https://t2ch.github.io/">T2CH</AppLink>
+            </Styled.h3>
+            <p>{index.projects.t2ch.description}</p>
+          </div>
+        </div>
       </div>
-      */}
     </React.Fragment>
   )
 }

@@ -1,8 +1,16 @@
 {
-  "hello": "Vladimir Zhelvis",
-  "subline": "Full stack web developer. Based in Moscow",
-  "phone": "Phone",
-  "contacts": "Contacts",
+  "index": {
+    "hello": "Vladimir Zhelvis",
+    "subline": "Full stack web developer. Based in Moscow",
+    "phone": "Phone",
+    "contacts": "Contacts",
+    "projects": {
+      "title": "Projects",
+      "t2ch": {
+        "description": "Proof-of-stake blockchain platform"
+      }
+    }
+  },
   "backToHome": "Back to home",
   "toggleDarkMode": "Toggle dark mode",
   "notFound": {

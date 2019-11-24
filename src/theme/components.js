@@ -22,7 +22,7 @@ export default {
     px: options.globalPadding,
     backgroundColor: `background`,
     borderBottom: `1px solid`,
-    borderColor: `highlight`,
+    borderColor: `muted`,
   },
   main: {
     display: `block`,

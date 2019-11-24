@@ -1,8 +1,16 @@
 {
-  "hello": "Владимир Жельвис",
-  "subline": "Full stack веб-разработчик. Живу и работаю в Москве",
-  "phone": "Телефон",
-  "contacts": "Контакты",
+  "index": {
+    "hello": "Владимир Жельвис",
+    "subline": "Full stack веб-разработчик. Живу и работаю в Москве",
+    "phone": "Телефон",
+    "contacts": "Контакты",
+    "projects": {
+      "title": "Проекты",
+      "t2ch": {
+        "description": "Proof-of-stake блокчейн-платформа"
+      }
+    }
+  },
   "backToHome": "Домой",
   "toggleDarkMode": "Переключить темный режим",
   "notFound": {
