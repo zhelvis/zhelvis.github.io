@@ -4,22 +4,22 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { AppLink } from '../components/AppLink'
 import { SEO } from '../components/seo'
-// import useTranslations from '../components/useTranslations'
+import useTranslations from '../components/useTranslations'
 
 const Blog = ({ data: { allMdx } }) => {
-  // const { hello, subline, aboutMe, blog, phone, contacts } = useTranslations()
+  const { blog } = useTranslations()
 
   return (
     <React.Fragment>
-      <SEO />
-      <Styled.h1>Blog</Styled.h1>
+      <SEO title={blog.title} description={blog.description} />
+      <Styled.h1>{blog.title}</Styled.h1>
       <ul
         className="post-list"
         sx={{
           listStyle: 'none',
           m: 0,
-          px: 3,
           py: 4,
+          pl: 0,
         }}
       >
         {allMdx.edges.map(({ node: post }) => (

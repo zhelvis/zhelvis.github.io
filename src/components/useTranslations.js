@@ -33,8 +33,6 @@ const query = graphql`
           translations: childTranslationsJson {
             hello
             subline
-            aboutMe
-            blog
             phone
             contacts
             backToHome
@@ -43,6 +41,15 @@ const query = graphql`
               title
               description
               content
+            }
+            about {
+              title
+              description
+              content
+            }
+            blog {
+              title
+              description
             }
           }
         }

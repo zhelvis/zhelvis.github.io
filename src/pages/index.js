@@ -14,7 +14,7 @@ const Index = ({
     },
   },
 }) => {
-  const { hello, subline, aboutMe, blog, phone, contacts } = useTranslations()
+  const { hello, subline, about, blog, phone, contacts } = useTranslations()
 
   return (
     <React.Fragment>
@@ -23,9 +23,9 @@ const Index = ({
         <Styled.h1>{hello}</Styled.h1>
         <p>{subline}</p>
         <AppLink sx={{ mr: 2 }} to="/about">
-          {aboutMe}
+          {about.title}
         </AppLink>{' '}
-        <AppLink to="/blog">{blog}</AppLink>
+        <AppLink to="/blog">{blog.title}</AppLink>
       </div>
       <div sx={{ pb: 4, fontSize: `1.2rem` }}>
         <Styled.h2>{contacts}</Styled.h2>
