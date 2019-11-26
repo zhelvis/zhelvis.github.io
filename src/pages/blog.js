@@ -51,7 +51,10 @@ export default Blog
 export const query = graphql`
   query Blog($locale: String!, $dateFormat: String!) {
     allMdx(
-      filter: { fields: { locale: { eq: $locale } } }
+      filter: {
+        fileAbsolutePath: { glob: "**/content/blog/**" }
+        fields: { locale: { eq: $locale } }
+      }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {

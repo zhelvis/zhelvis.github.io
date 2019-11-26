@@ -20,7 +20,7 @@ export default {
     boolean: `#ff5874`,
     property: `#80cbc4`,
     namespace: `#b2ccd6`,
-    highlight: `hsla(207, 95%, 15%, 1)`,
+    highlight: `hsl(207, 95%, 15%)`,
   },
   modes: {
     dark: {
@@ -30,7 +30,7 @@ export default {
       secondary: 'hsl(290, 100%, 80%)',
       highlight: 'hsl(260, 20%, 40%)',
       purple: 'hsl(290, 100%, 80%)',
-      muted: 'hsla(230, 20%, 0%, 20%)',
+      muted: 'hsl(230, 20%, 20%)',
       gray: 'hsl(210, 50%, 60%)',
     },
   },

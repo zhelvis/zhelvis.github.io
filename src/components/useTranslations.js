@@ -54,6 +54,7 @@ const query = graphql`
               title
               description
               content
+              alt
             }
             blog {
               title

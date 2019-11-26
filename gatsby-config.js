@@ -17,8 +17,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -29,13 +27,37 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/blog`,
+        path: `${__dirname}/content/blog`,
         name: `blog`,
       },
     },
-    `gatsby-plugin-mdx`,
-    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/about`,
+        name: `about`,
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              quality: 100,
+              maxWidth: 768,
+            },
+          },
+        ],
+        plugins: [`gatsby-remark-images`],
+      },
+    },
+    `gatsby-plugin-theme-ui`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-json`,
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {

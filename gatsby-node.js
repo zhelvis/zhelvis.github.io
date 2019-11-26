@@ -70,13 +70,39 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const postTemplate = require.resolve(`./src/templates/post.js`)
+  const aboutTemplate = require.resolve(`./src/templates/about.js`)
 
   const result = await graphql(`
     {
-      blog: allFile(filter: { sourceInstanceName: { eq: "blog" } }) {
+      blog: allFile(
+        filter: {
+          sourceInstanceName: { eq: "blog" }
+          children: { elemMatch: { internal: { type: { eq: "Mdx" } } } }
+        }
+      ) {
         edges {
           node {
             relativeDirectory
+            childMdx {
+              fields {
+                locale
+                isDefault
+              }
+              frontmatter {
+                title
+              }
+            }
+          }
+        }
+      }
+      about: allFile(
+        filter: {
+          sourceInstanceName: { eq: "about" }
+          children: { elemMatch: { internal: { type: { eq: "Mdx" } } } }
+        }
+      ) {
+        edges {
+          node {
             childMdx {
               fields {
                 locale
@@ -98,6 +124,7 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   const postList = result.data.blog.edges
+  const aboutPages = result.data.about.edges
 
   postList.forEach(({ node: post }) => {
     // All files for a blogpost are stored in a folder
@@ -117,6 +144,21 @@ exports.createPages = async ({ graphql, actions }) => {
         // Pass both the "title" and "locale" to find a unique file
         // Only the title would not have been sufficient as articles could have the same title
         // in different languages, e.g. because an english phrase is also common in german
+        locale,
+        title,
+      },
+    })
+  })
+
+  aboutPages.forEach(({ node }) => {
+    const title = node.childMdx.frontmatter.title
+    const locale = node.childMdx.fields.locale
+    const isDefault = node.childMdx.fields.isDefault
+
+    createPage({
+      path: isDefault ? `/about/` : `/${locale}/about/`,
+      component: aboutTemplate,
+      context: {
         locale,
         title,
       },
