@@ -6,11 +6,11 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby clean && gatsby build",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "prettier": "prettier --write ./\\*\\*/*.{js,css,mdx,json}",
-    "deploy": "gh-pages -d public -b master"
+    "deploy": "npm run build && gh-pages -d public -b master"
   },
   "dependencies": {
     "@emotion/core": "^10.0.22",

@@ -1,9 +1,9 @@
 {
   "index": {
     "hello": "Vladimir Zhelvis",
-    "subline": "Full stack web developer. Based in Moscow",
-    "phone": "Phone",
+    "subline": "Full stack developer. Based in Moscow",
     "contacts": "Contacts",
+    "about": "About",
     "projects": {
       "title": "Projects",
       "t2ch": {
@@ -17,12 +17,6 @@
     "title": "Not Found",
     "description": "This page does not exist",
     "content": "You're on a page that doesn't exist right now. Do you exist yourself?"
-  },
-  "about": {
-    "title": "About",
-    "description": "About me",
-    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "alt": "My foto"
   },
   "blog": {
     "title": "Blog",

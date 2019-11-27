@@ -23,6 +23,7 @@ export default {
     backgroundColor: `background`,
     borderBottom: `1px solid`,
     borderColor: `muted`,
+    zIndex: 1,
   },
   main: {
     display: `block`,

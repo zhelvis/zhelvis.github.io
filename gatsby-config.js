@@ -6,7 +6,6 @@ module.exports = {
       github: 'https://github.com/zhelvis',
       vk: 'https://vk.com/v.zhelvis',
       email: 'zhelvisvladimir@gmail.com',
-      phone: '+79771177563',
     },
   },
   plugins: [
@@ -49,6 +48,7 @@ module.exports = {
             options: {
               quality: 100,
               maxWidth: 768,
+              linkImagesToOriginal: false,
             },
           },
         ],

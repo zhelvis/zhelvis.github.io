@@ -36,7 +36,7 @@ const query = graphql`
             index {
               hello
               subline
-              phone
+              about
               contacts
               projects {
                 title
@@ -49,12 +49,6 @@ const query = graphql`
               title
               description
               content
-            }
-            about {
-              title
-              description
-              content
-              alt
             }
             blog {
               title

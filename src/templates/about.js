@@ -7,8 +7,11 @@ import { SEO } from '../components/seo'
 
 const About = ({ data: { mdx } }) => (
   <React.Fragment>
-    <SEO title={mdx.frontmatter.title} />
-    <div sx={{ maxWidth: 'container' }} className="about">
+    <SEO
+      title={mdx.frontmatter.title}
+      description={mdx.frontmatter.description}
+    />
+    <div sx={{ pb: 6, maxWidth: 'container' }} className="about">
       <MDXRenderer>{mdx.body}</MDXRenderer>
     </div>
   </React.Fragment>
@@ -24,6 +27,7 @@ export const query = graphql`
     ) {
       frontmatter {
         title
+        description
       }
       body
     }

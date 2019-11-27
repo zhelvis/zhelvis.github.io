@@ -15,7 +15,7 @@ const Index = ({
     },
   },
 }) => {
-  const { index, about, blog } = useTranslations()
+  const { index, blog } = useTranslations()
   return (
     <React.Fragment>
       <SEO />
@@ -23,7 +23,7 @@ const Index = ({
         <Styled.h1>{index.hello}</Styled.h1>
         <p>{index.subline}</p>
         <AppLink sx={{ mr: 2 }} to="/about">
-          {about.title}
+          {index.about}
         </AppLink>{' '}
         <AppLink to="/blog">{blog.title}</AppLink>
       </div>
@@ -31,10 +31,6 @@ const Index = ({
         <Styled.h2>{index.contacts}</Styled.h2>
         <p>
           Email: <AppLink to={`mailto:${author.email}`}>{author.email}</AppLink>
-        </p>
-        <p>
-          {`${index.phone}: `}
-          <AppLink to={`tel:${author.phone}`}>{author.phone}</AppLink>
         </p>
         <AppLink to={author.telegram}>Telegram</AppLink>
         <LinkDivider />
@@ -76,7 +72,6 @@ export const query = graphql`
           github
           vk
           email
-          phone
         }
       }
     }
