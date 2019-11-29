@@ -1,12 +1,23 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import { Fragment, useState } from 'react'
+import { keyframes } from '@emotion/core'
+import { useState } from 'react'
 import { useBreakpointIndex } from '@theme-ui/match-media'
 import { MenuIcon, CloseIcon } from './icons'
 import { IconButton } from './iconButton'
 
 import { NavLink } from './navLink'
 import useTranslations from './useTranslations'
+
+const animation = keyframes`
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: none;
+  }
+`
 
 const StyledNavLink = ({ ...props }) => (
   <NavLink sx={{ fontWeight: `bold`, mr: 4 }} {...props} />
@@ -43,6 +54,7 @@ const MobileNavigation = props => {
         <div
           sx={{
             variant: `navigation.mobile.container`,
+            animation: `${animation} 0.2s ease-out 0s`,
           }}
         >
           <div sx={{ variant: `navigation.mobile.header` }}>
