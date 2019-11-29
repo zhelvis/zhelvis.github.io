@@ -15,7 +15,7 @@ const Index = ({
     },
   },
 }) => {
-  const { index, blog } = useTranslations()
+  const { index, blog, about } = useTranslations()
   return (
     <React.Fragment>
       <SEO />
@@ -23,7 +23,7 @@ const Index = ({
         <Styled.h1>{index.hello}</Styled.h1>
         <p>{index.subline}</p>
         <AppLink sx={{ mr: 2 }} to="/about">
-          {index.about}
+          {about}
         </AppLink>{' '}
         <AppLink to="/blog">{blog.title}</AppLink>
       </div>

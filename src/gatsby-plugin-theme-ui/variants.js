@@ -5,10 +5,10 @@ const options = {
 
 export default {
   navlink: {
+    display: `inline-block` /* For IE11/ MS Edge bug */,
     color: `inherit`,
     textDecoration: `none`,
     '&.active': {
-      display: `inline-block` /* For IE11/ MS Edge bug */,
       pointerEvents: `none`,
       color: `primary`,
     },
@@ -29,6 +29,39 @@ export default {
     display: `block`,
     pt: options.headerHeight,
     px: options.globalPadding,
+  },
+  navigation: {
+    mobile: {
+      wrapper: {
+        display: `flex`,
+        height: `100vh`,
+        width: `100vw`,
+        position: `fixed`,
+        top: 0,
+        left: 0,
+        zIndex: 2,
+        backgroundColor: `rgba(0, 0, 0, 0.5)`,
+      },
+      container: {
+        display: `flex`,
+        flexDirection: `column`,
+        height: `inherit`,
+        px: 3,
+        width: 150,
+        backgroundColor: `background`,
+      },
+      header: {
+        display: `flex`,
+        justifyContent: `flex-end`,
+        alignItems: `center`,
+        height: options.headerHeight,
+      },
+      body: {
+        display: `flex`,
+        flexDirection: 'column',
+        fontSize: '1.5rem',
+      },
+    },
   },
   buttons: {
     primary: {

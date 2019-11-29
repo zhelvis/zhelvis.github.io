@@ -2,7 +2,6 @@
   "index": {
     "hello": "Владимир Жельвис",
     "subline": "Full stack разработчик. Живу и работаю в Москве",
-    "about": "Обо мне",
     "contacts": "Контакты",
     "projects": {
       "title": "Проекты",
@@ -11,8 +10,10 @@
       }
     }
   },
+  "about": "Обо мне",
   "backToHome": "Домой",
   "toggleDarkMode": "Переключить темный режим",
+  "toggleMenu": "Переключить меню",
   "notFound": {
     "title": "Не найдено",
     "description": "Этой страницы не существует",

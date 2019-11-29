@@ -12,7 +12,6 @@ const Blog = ({ data: { allMdx } }) => {
   return (
     <React.Fragment>
       <SEO title={blog.title} description={blog.description} />
-      <Styled.h1>{blog.title}</Styled.h1>
       <ul
         className="post-list"
         sx={{

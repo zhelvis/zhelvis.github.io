@@ -32,11 +32,12 @@ const query = graphql`
           name
           translations: childTranslationsJson {
             backToHome
+            about
             toggleDarkMode
+            toggleMenu
             index {
               hello
               subline
-              about
               contacts
               projects {
                 title

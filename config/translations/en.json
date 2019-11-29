@@ -3,7 +3,6 @@
     "hello": "Vladimir Zhelvis",
     "subline": "Full stack developer. Based in Moscow",
     "contacts": "Contacts",
-    "about": "About",
     "projects": {
       "title": "Projects",
       "t2ch": {
@@ -11,8 +10,10 @@
       }
     }
   },
+  "about": "About",
   "backToHome": "Back to home",
   "toggleDarkMode": "Toggle dark mode",
+  "toggleMenu": "Toggle menu",
   "notFound": {
     "title": "Not Found",
     "description": "This page does not exist",
