@@ -44,12 +44,13 @@ const Index = ({
           sx={{
             display: `flex`,
             alignItems: `center`,
+            flexWrap: `wrap`,
           }}
         >
           <div sx={{ maxWidth: 96 }}>
             <T2chIcon sx={{ width: `100%`, heght: `100%`, fill: `text` }} />
           </div>
-          <div sx={{ ml: 3 }}>
+          <div sx={{ ml: [0, 3], pt: [3, 0] }}>
             <Styled.h3 sx={{ m: 0 }}>
               <AppLink to="https://t2ch.github.io/">T2CH</AppLink>
             </Styled.h3>

@@ -1,11 +1,10 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import { keyframes } from '@emotion/core'
-import { useState } from 'react'
-import { useBreakpointIndex } from '@theme-ui/match-media'
+import { useState, Fragment } from 'react'
+
 import { MenuIcon, CloseIcon } from './icons'
 import { IconButton } from './iconButton'
-
 import { NavLink } from './navLink'
 import useTranslations from './useTranslations'
 
@@ -26,7 +25,7 @@ const StyledNavLink = ({ ...props }) => (
 const DesktopNavigation = props => {
   const { backToHome, about, blog } = useTranslations()
   return (
-    <nav {...props}>
+    <nav sx={{ display: [`none`, `block`] }} {...props}>
       <StyledNavLink sx={{ fontSize: `1.2rem` }} to="/" aria-label={backToHome}>
         Zhelvis
       </StyledNavLink>
@@ -41,7 +40,7 @@ const MobileNavigation = props => {
   const [isOpen, setOpenBoolean] = useState(false)
 
   return (
-    <div>
+    <div sx={{ display: [`block`, `none`] }}>
       <IconButton aria-label={toggleMenu} onClick={() => setOpenBoolean(true)}>
         <MenuIcon sx={{ fill: `text` }} />
       </IconButton>
@@ -91,10 +90,10 @@ const MobileNavigation = props => {
 }
 
 export const Navigation = props => {
-  const index = useBreakpointIndex()
-  return index !== 0 ? (
-    <DesktopNavigation {...props} />
-  ) : (
-    <MobileNavigation {...props} />
+  return (
+    <Fragment>
+      <MobileNavigation {...props} />
+      <DesktopNavigation {...props} />
+    </Fragment>
   )
 }
