@@ -31,6 +31,7 @@ const query = graphql`
         node {
           name
           translations: childTranslationsJson {
+            m
             backToHome
             home
             about

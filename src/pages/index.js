@@ -38,7 +38,7 @@ const Index = ({
         <LinkDivider />
         <AppLink to={author.github}>Github</AppLink>
       </div>
-      <div sx={{ pb: 6, maxWidth: `container`, fontSize: `1.2em` }}>
+      <div sx={{ maxWidth: `container`, fontSize: `1.2em` }}>
         <Styled.h2>{index.projects.title}</Styled.h2>
         <div
           sx={{

@@ -7,7 +7,7 @@ import { SEO } from '../components/seo'
 import useTranslations from '../components/useTranslations'
 
 const Blog = ({ data: { allMdx } }) => {
-  const { blog } = useTranslations()
+  const { blog, m } = useTranslations()
 
   return (
     <React.Fragment>
@@ -38,7 +38,11 @@ const Blog = ({ data: { allMdx } }) => {
                   {post.frontmatter.title}
                 </AppLink>
               </Styled.h2>
-              <small sx={{ fontWeight: 'bold' }}>{post.frontmatter.date}</small>
+              <small sx={{ fontWeight: `bold` }}>{post.frontmatter.date}</small>
+              <br />
+              <small
+                sx={{ fontStyle: `italic` }}
+              >{`${post.timeToRead}${m}`}</small>
               <p>{post.frontmatter.description}</p>
             </li>
           ))}

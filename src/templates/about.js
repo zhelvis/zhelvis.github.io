@@ -11,7 +11,7 @@ const About = ({ data: { mdx } }) => (
       title={mdx.frontmatter.title}
       description={mdx.frontmatter.description}
     />
-    <div sx={{ pb: 6, maxWidth: 'container' }} className="about">
+    <div sx={{ maxWidth: 'container' }} className="about">
       <MDXRenderer>{mdx.body}</MDXRenderer>
     </div>
   </React.Fragment>

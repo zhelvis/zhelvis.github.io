@@ -28,6 +28,7 @@ export default {
   main: {
     display: `block`,
     pt: options.headerHeight,
+    pb: 6,
     px: options.globalPadding,
   },
   navigation: {
