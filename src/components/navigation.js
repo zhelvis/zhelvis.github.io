@@ -36,7 +36,7 @@ const DesktopNavigation = props => {
 }
 
 const MobileNavigation = props => {
-  const { backToHome, about, blog, toggleMenu } = useTranslations()
+  const { backToHome, about, home, blog, toggleMenu } = useTranslations()
   const [isOpen, setOpenBoolean] = useState(false)
 
   return (
@@ -70,7 +70,7 @@ const MobileNavigation = props => {
               to="/"
               aria-label={backToHome}
             >
-              Home
+              {home}
             </StyledNavLink>
             <StyledNavLink onClick={() => setOpenBoolean(false)} to="/about">
               {about}

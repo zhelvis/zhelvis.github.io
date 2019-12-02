@@ -11,7 +11,8 @@
     }
   },
   "about": "Обо мне",
-  "backToHome": "Домой",
+  "home": "Главная",
+  "backToHome": "На главную",
   "toggleDarkMode": "Переключить темный режим",
   "toggleMenu": "Переключить меню",
   "notFound": {

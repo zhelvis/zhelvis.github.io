@@ -12,35 +12,38 @@ const Blog = ({ data: { allMdx } }) => {
   return (
     <React.Fragment>
       <SEO title={blog.title} description={blog.description} />
-      <ul
-        className="post-list"
-        sx={{
-          listStyle: 'none',
-          m: 0,
-          py: 4,
-          pl: 0,
-        }}
-      >
-        {allMdx.edges.map(({ node: post }) => (
-          <li
-            key={`${post.frontmatter.title}-${post.fields.locale}`}
-            sx={{
-              mb: 4,
-            }}
-          >
-            <Styled.h2
+      <div sx={{ maxWidth: 'container' }}>
+        <ul
+          className="post-list"
+          sx={{
+            listStyle: 'none',
+            m: 0,
+            py: 4,
+            pl: 0,
+          }}
+        >
+          {allMdx.edges.map(({ node: post }) => (
+            <li
+              key={`${post.frontmatter.title}-${post.fields.locale}`}
               sx={{
-                m: 0,
+                mb: 4,
               }}
             >
-              <AppLink to={`/blog/${post.parent.relativeDirectory}`}>
-                {post.frontmatter.title}
-              </AppLink>
-            </Styled.h2>
-            <small sx={{ fontWeight: 'bold' }}>{post.frontmatter.date}</small>
-          </li>
-        ))}
-      </ul>
+              <Styled.h2
+                sx={{
+                  m: 0,
+                }}
+              >
+                <AppLink to={`/blog/${post.parent.relativeDirectory}`}>
+                  {post.frontmatter.title}
+                </AppLink>
+              </Styled.h2>
+              <small sx={{ fontWeight: 'bold' }}>{post.frontmatter.date}</small>
+              <p>{post.frontmatter.description}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </React.Fragment>
   )
 }
@@ -61,7 +64,9 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: $dateFormat)
+            description
           }
+          timeToRead
           fields {
             locale
           }

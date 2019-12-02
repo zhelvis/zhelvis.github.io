@@ -30,7 +30,7 @@ const Index = ({
       <div sx={{ pb: 4, maxWidth: `container`, fontSize: `1.2rem` }}>
         <Styled.h2>{index.contacts}</Styled.h2>
         <p>
-          Email: <AppLink to={`mailto:${author.email}`}>{author.email}</AppLink>
+          <AppLink to={`mailto:${author.email}`}>{author.email}</AppLink>
         </p>
         <AppLink to={author.telegram}>Telegram</AppLink>
         <LinkDivider />

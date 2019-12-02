@@ -32,6 +32,7 @@ const query = graphql`
           name
           translations: childTranslationsJson {
             backToHome
+            home
             about
             toggleDarkMode
             toggleMenu

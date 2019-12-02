@@ -73,6 +73,9 @@ export default {
   blockquote: {
     color: `inherit`,
     borderLeftColor: `inherit`,
+    borderLeft: `2px solid`,
+    m: 0,
+    pl: 4,
     opacity: 0.8,
     '&.translation': {
       fontSize: `1em`,
