@@ -1,12 +1,12 @@
 const heading = {
-  fontFamily: 'heading',
-  lineHeight: 'heading',
+  fontFamily: `heading`,
+  lineHeight: `heading`,
 }
 
 export default {
   root: {
     fontFamily: `body`,
-    lineHeight: 'body',
+    lineHeight: `body`,
   },
   h1: {
     ...heading,
@@ -43,11 +43,11 @@ export default {
     fontSize: `inherit`,
   },
   inlineCode: {
-    borderRadius: `0.3em`,
+    fontFamily: `body`,
+    borderRadius: `0.2em`,
     color: `secondary`,
     bg: `highlight`,
-    paddingTop: `0.15em`,
-    paddingBottom: `0.05em`,
+    paddingY: `0.05em`,
     paddingX: `0.2em`,
   },
   a: {

@@ -42,8 +42,8 @@ const Blog = ({ data: { allMdx } }) => {
               <br />
               <small
                 sx={{ fontStyle: `italic` }}
-              >{`${post.timeToRead}${m}`}</small>
-              <p>{post.frontmatter.description}</p>
+              >{`${post.timeToRead} ${m}`}</small>
+              <p>{post.frontmatter.foreword}</p>
             </li>
           ))}
         </ul>
@@ -68,7 +68,7 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: $dateFormat)
-            description
+            foreword
           }
           timeToRead
           fields {
