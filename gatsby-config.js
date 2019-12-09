@@ -79,7 +79,7 @@ module.exports = {
         short_name: `Zhelvis`,
         start_url: `/`,
         background_color: `hsl(10,10%,98%)`,
-        theme_color: `hsl(10,20%,20%)`,
+        theme_color: `black`,
         display: `minimal-ui`,
         icon: `src/images/icon.png`,
       },
