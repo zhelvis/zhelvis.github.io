@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /
-Sitemap: https://zhelvis.github.io/sitemap.xml
-Host: https://zhelvis.github.io
