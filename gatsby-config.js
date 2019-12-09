@@ -58,10 +58,18 @@ module.exports = {
     `gatsby-plugin-theme-ui`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-json`,
+    /*
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         policy: [{ userAgent: '*', disallow: '/' }],
+      },
+    },
+    */
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `UA-154200953-1`,
       },
     },
     {
@@ -76,5 +84,6 @@ module.exports = {
         icon: `src/images/icon.png`,
       },
     },
+    `gatsby-plugin-offline`,
   ],
 }

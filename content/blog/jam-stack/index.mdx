@@ -1,6 +1,6 @@
 ---
 title: 'JAMstack. Modern way to create static sites'
-date: 2019-12-02
+date: 2019-12-09
 description: 'In this article, we will understand what JAMstack is and create a simple blog using GatsbyJS'
 foreword: 'Do you want to create light and blazing fast sites, using your favorite web framework, with support for the latest
 SEO, PWA recommendations and interface availability without writing a single line of server code? You are welcome!' 
@@ -88,7 +88,7 @@ the data layer from the display layer (headless CMS). It has convenient integrat
 
 GitHub will be used to store content and source code.
 
-### Создаем блог с помощью Gatsby
+### Creating blog using Gatsby
 
 Install gatsby using node package manager:
 
@@ -134,7 +134,7 @@ Some notable files and their definitions:
 
 By default, Gatsby creates pages in `src/pages` folder.
 
-Run local server for development
+Run local development server 
 
 ```
 gatsby develop
@@ -149,7 +149,7 @@ and query patterns that are used when rendering pages.
 
 ![graphQL browser](./graphQL.jpg)
 
-We will store blog posts in markdown markup. Let's create a separate folder for records:
+We will store blog posts in markdown markup. Let's create a separate folder for blog posts:
 
 ```
 mkdir content
@@ -204,7 +204,7 @@ plugins: [
 
 ```
 
-Restart server. Going to the graphQL browser, we will see that new data has become available to us. 
+Restart our development server. Going to the graphQL browser, we will see that new data has become available to us. 
 We will send test request and get valid response.
 
 ![Test request](./blog_req.jpg)
@@ -248,7 +248,7 @@ export const pageQuery = graphql`
 `
 ```
 
-Now program in `gatsby-node.js`, how posts will be rendered. 
+Now we program in `gatsby-node.js`, how posts will be rendered. 
 To do this, we use the `createPages` API described in the specification [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/):
 
 ```js
@@ -289,7 +289,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 }
 ```
 
-Our post will be available at http://localhost:8000/blog/first-post/ after restart
+Our post will be available at http://localhost:8000/blog/first-post/ 
 
 ![post page](./first_post_page.jpg)
 
@@ -374,7 +374,7 @@ And build production version:
 gatsby build
 ```
 
-The result of the SSG is saved in `public` folder.
+Site data saved in `public` folder.
 
 Our blog is ready to be published online!
 
@@ -401,17 +401,17 @@ First step is selection the necessary git provider. This is GitHub in our exampl
 
 ![Provider selection](./netlify_first_step.jpg)
 
-Then we connect the necessary repository.
+Then we connect repository.
 
 ![Repository selection](./netlify_second_step.jpg)
 
 The last step is to set the build options. Netlify by default tracks changes in the master branch of the repository.
-Specify build command, and select the` public` folder as the path to the statics.
+Specify build command, and select the `public` folder as the path to the statics.
 
 ![Options](./netlify_third_step.jpg)
 
 During building, Netlify downloads the source code from Github, launches Gatsby, and deploy the result of its work in its own 
-CDN with adding of random domain and valid certificate. In the settings you can change the domain to your own, as well 
+CDN with adding random domain and valid certificate. In the settings you can change the domain to your own, as well 
 as familiarize yourself with real-time CD process logs.
 
 ![Project building](./netlify_CD.jpg)
@@ -433,8 +433,8 @@ Add a couple of new dependencies to the project:
 - [netlify-cms-app](https://www.npmjs.com/package/netlify-cms-app) – Content dashboard for static sites, which is 
 client-side React Single Page Application.
 
-- [gatsby-plugin-netlify-cms](https://www.gatsbyjs.org/packages/gatsby-plugin-netlify-cms/?=gatsby-pligin-net) – Gatsby plugin 
-that adds `netlify-cms-app` to the generator build.
+- [gatsby-plugin-netlify-cms](https://www.gatsbyjs.org/packages/gatsby-plugin-netlify-cms/?=gatsby-pligin-net) – Gatsby plugin, 
+that adds `netlify-cms-app` to the SSG build.
 
 ```
 npm i netlify-cms-app gatsby-plugin-netlify-cms
@@ -444,7 +444,10 @@ npm i netlify-cms-app gatsby-plugin-netlify-cms
 And connect plugin in `gatsby-config.js`:
 
 ```js
-plugins: [...`gatsby-plugin-netlify-cms`]
+plugins: [
+    ...
+    `gatsby-plugin-netlify-cms`
+]
 ```
 
 Create file `config.yml` in folder `static/admin` with the following content:
