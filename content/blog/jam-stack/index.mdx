@@ -3,11 +3,11 @@ title: 'JAMstack. Modern way to create static sites'
 date: 2019-12-09
 description: 'In this article, we will understand what JAMstack is and create a simple blog using GatsbyJS'
 foreword: 'Do you want to create light and blazing fast sites, using your favorite web framework, with support for the latest
-SEO, PWA recommendations and interface availability without writing a single line of server code? You are welcome!' 
+SEO, PWA and interface availability recommendations without writing a single line of server code? You are welcome!' 
 ---
 
 Do you want to create light and blazing fast sites, using your favorite web framework, with support for the latest
-SEO, PWA recommendations and interface availability without writing a single line of server code? You are welcome!
+SEO, PWA and interface availability recommendations without writing a single line of server code? You are welcome!
 
 ## JAMstack
 
@@ -27,9 +27,9 @@ Despite the name, this is not a set of tools, but a general approach to applicat
 
 ![Architecture JAM](./JAM_stack.png)
 
-Cloud services are used as a backend. All development comes down to designing templates for SSG, which hosted in git repository with the data together. 
-The repository connects to the [continuous delivery service (CD)](https://aws.amazon.com/devops/continuous-delivery/), 
-which tracks changes in the source code, starts the generator and places the resulting pages in 
+Cloud services are used as a backend. All development comes down to designing templates for SSG, which hosted in git repository with data. 
+The repository connects to [continuous delivery service (CD)](https://aws.amazon.com/devops/continuous-delivery/), 
+which tracks changes in source code, runs the generator and places the resulting pages in 
 [content delivery network (CDN)](https://en.wikipedia.org/wiki/Content_delivery_network). Developers update the site 
 by sending commits to the repository directly, and non-technical specialists use a cloud-based CMS, also connected to the repository.
 

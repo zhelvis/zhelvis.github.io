@@ -86,5 +86,11 @@ module.exports = {
       },
     },
     `gatsby-plugin-remove-serviceworker`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: ['/ru/404/', `/ru/404.html`],
+      },
+    },
   ],
 }
