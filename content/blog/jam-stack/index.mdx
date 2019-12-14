@@ -17,11 +17,10 @@ Despite the name, this is not a set of tools, but a general approach to applicat
 
 - JavaScript – Programming language we need to develop browser-based interactive. For very simple sites, you can do without it
 
-- APIs – Data sources from which static pages will be generated. Anything can serve as a source: databases, CMS or git repository.
+- APIs – Data sources from which static pages will be generated. Anything can serve as a source: databases, CMS or git repository
 
 - Markup – Literally, this is the markup of the site. At the primitive level, these are interconnected html files.
-  But often the use of static site generator (SSG), which create pages from
-  received data according to a predetermined pattern
+  But often the use of static site generator (SSG), which create pages from received data according to a predetermined pattern
 
 ## Architecture
 
@@ -37,7 +36,7 @@ by sending commits to the repository directly, and non-technical specialists use
 
 ### High load speed and fault tolerance
 
-Since all pages are created in advance, the server does not waste time requesting and parsing data,
+Since all pages are created in advance, the server does not waste time requesting and parsing data, 
 which allows you to process more requests per second.
 
 ### Security
@@ -77,7 +76,7 @@ any other static sites where the speed of updating content is fading into the ba
 
 There are a huge number of tools for creating JAM applications. The following stack will be used in this example:
 
-- [Gatsby](https://www.gatsbyjs.org/) –  Open source generator of static sites from React + GraphQL applications. 
+- [Gatsby](https://www.gatsbyjs.org/) – Open source generator of static sites from React + GraphQL applications. 
 On the one hand, it has a convenient plugin system, which allows you to develop sites with minimal time, 
 on the other hand have very flexible configuration.
 
@@ -96,19 +95,19 @@ Install gatsby using node package manager:
 npm i -g gatsby-cli
 ```
 
-Create a new site
+Create a new project:
 
 ```
 gatsby new gatsby-blog-example
 ```
 
-Change directories into site folder
+Change directories into site folder:
 
 ```
 cd gatsby-blog-example
 ```
 
-Project structure
+Project structure:
 
 ```
 /
@@ -134,7 +133,7 @@ Some notable files and their definitions:
 
 By default, Gatsby creates pages in `src/pages` folder.
 
-Run local development server 
+Run local development server:
 
 ```
 gatsby develop
