@@ -52,6 +52,10 @@ export const SEO = ({ description, title }) => {
           property: `og:locale`,
           content: data.ogLanguage,
         },
+        {
+          name: `yandex-verification`,
+          content: `3506a090f8098818`,
+        },
       ]}
     />
   )

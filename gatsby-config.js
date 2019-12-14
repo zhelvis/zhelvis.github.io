@@ -58,14 +58,12 @@ module.exports = {
     `gatsby-plugin-theme-ui`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-json`,
-    /*
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        policy: [{ userAgent: '*', disallow: '/' }],
+        policy: [{ userAgent: '*', allow: '/' }],
       },
     },
-    */
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
