@@ -61,7 +61,13 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        policy: [{ userAgent: '*', allow: '/' }],
+        policy: [
+          {
+            userAgent: '*',
+            allow: '/',
+            disallow: [`/404/`, `/404.html`, '/ru/404/', `/ru/404.html`],
+          },
+        ],
       },
     },
     {
