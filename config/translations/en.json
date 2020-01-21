@@ -19,7 +19,7 @@
   "notFound": {
     "title": "Not Found",
     "description": "This page does not exist",
-    "content": "You're on a page that doesn't exist right now. Do you exist yourself?"
+    "content": "Right now you are on a page that does not exist. Do you exist yourself?"
   },
   "blog": {
     "title": "Blog",
