@@ -1,16 +1,9 @@
 {
-  "index": {
-    "hello": "Vladimir Zhelvis",
-    "subline": "Full stack developer. Based in Moscow",
-    "contacts": "Contacts",
-    "projects": {
-      "title": "Projects",
-      "t2ch": {
-        "description": "Proof-of-stake blockchain platform"
-      }
-    }
+  "person": {
+    "name": "Vladimir Zhelvis",
+    "profession": "Full stack developer"
   },
-  "about": "About",
+  "about": "About me",
   "home": "Home",
   "m": "min read",
   "backToHome": "Back to home",

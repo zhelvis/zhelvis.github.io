@@ -1,14 +1,7 @@
 {
-  "index": {
-    "hello": "Владимир Жельвис",
-    "subline": "Full stack разработчик. Живу и работаю в Москве",
-    "contacts": "Контакты",
-    "projects": {
-      "title": "Проекты",
-      "t2ch": {
-        "description": "Proof-of-stake блокчейн-платформа"
-      }
-    }
+  "person": {
+    "name": "Владимир Жельвис",
+    "profession": "Full stack разработчик"
   },
   "about": "Обо мне",
   "home": "Главная",

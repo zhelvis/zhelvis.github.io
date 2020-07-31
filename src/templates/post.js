@@ -11,7 +11,7 @@ const Post = ({ data: { mdx } }) => (
       title={mdx.frontmatter.title}
       description={mdx.frontmatter.description}
     />
-    <div sx={{ maxWidth: 'container' }} className="blogpost">
+    <div className="blogpost">
       <Styled.h1>{mdx.frontmatter.title}</Styled.h1>
       <MDXRenderer>{mdx.body}</MDXRenderer>
     </div>

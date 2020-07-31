@@ -5,12 +5,8 @@ import prism from './prism'
 import typography from './typography'
 
 export default {
-  initialColorMode: 'light',
-  useCustomProperties: false,
+  useColorSchemeMediaQuery: true,
   colors,
-  sizes: {
-    container: 768,
-  },
   styles,
   prism,
   ...typography,

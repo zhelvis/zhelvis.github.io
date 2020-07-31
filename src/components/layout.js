@@ -1,19 +1,19 @@
 /** @jsx jsx */
-import { jsx, Styled } from 'theme-ui'
+import { jsx } from 'theme-ui'
+import { Fragment } from 'react'
+import { DesktopNavigation } from './navigation'
 import { Header } from './header'
 
 export const Layout = ({ children }) => (
-  <Styled.root>
-    <div className="global-wrapper">
+  <Fragment>
+    <DesktopNavigation />
+    <div
+      sx={{
+        marginLeft: [0, '18em'],
+      }}
+    >
       <Header />
-      <main
-        className="global-content"
-        sx={{
-          variant: `main`,
-        }}
-      >
-        {children}
-      </main>
+      <div sx={{ marginTop: '3rem' }}>{children}</div>
     </div>
-  </Styled.root>
+  </Fragment>
 )

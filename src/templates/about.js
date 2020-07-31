@@ -4,6 +4,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { SEO } from '../components/seo'
+import { Header } from '../components/header'
 
 const About = ({ data: { mdx } }) => (
   <React.Fragment>
@@ -11,7 +12,8 @@ const About = ({ data: { mdx } }) => (
       title={mdx.frontmatter.title}
       description={mdx.frontmatter.description}
     />
-    <div sx={{ maxWidth: 'container' }} className="about">
+    <Header />
+    <div className="about">
       <MDXRenderer>{mdx.body}</MDXRenderer>
     </div>
   </React.Fragment>

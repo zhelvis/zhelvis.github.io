@@ -1,29 +1,45 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-
-import { LocaleSwitch } from './localeSwitch'
-import { ColorModeSwitch } from './colorModeSwitch'
-import { LinkDivider } from './linkDivider'
-import { Navigation } from './navigation'
+import { Link } from 'gatsby'
+import { ThemeSwitch } from './themeSwitch'
+import { MobileNavigation } from './navigation'
 
 export const Header = () => {
   return (
-    <header
-      className="global-header"
+    <div
       sx={{
-        variant: `header`,
+        display: `flex`,
+        alignItems: `center`,
+        height: '3.5em',
+        position: 'fixed',
+        width: ['100%', `calc(100% - 18em)`],
+        top: 0,
+        px: 3,
+        backgroundColor: `background-alt-1`,
+        zIndex: 1,
       }}
     >
-      <Navigation />
+      <MobileNavigation />
       <div sx={{ mx: 'auto' }} />
       <div sx={{ display: `flex`, alignItems: `center` }}>
-        <div sx={{ px: 4 }}>
-          <LocaleSwitch target="en">EN</LocaleSwitch>
-          <LinkDivider />
-          <LocaleSwitch target="ru">RU</LocaleSwitch>
-        </div>
-        <ColorModeSwitch />
+        <nav sx={{ px: 3 }}>
+          <Link
+            to="/"
+            activeClassName="active"
+            sx={{ mx: 1, variant: 'navlink' }}
+          >
+            EN
+          </Link>
+          <Link
+            to="/ru"
+            activeClassName="active"
+            sx={{ mx: 1, variant: 'navlink' }}
+          >
+            RU
+          </Link>
+        </nav>
       </div>
-    </header>
+      <ThemeSwitch />
+    </div>
   )
 }

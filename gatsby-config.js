@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     siteUrl: 'https://zhelvis.github.io',
-    author: {
+    social: {
       telegram: 'https://t.me/zhelvis',
       github: 'https://github.com/zhelvis',
       vk: 'https://vk.com/v.zhelvis',

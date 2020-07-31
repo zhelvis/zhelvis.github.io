@@ -1,25 +1,22 @@
 /** @jsx jsx */
 import { jsx, Styled } from 'theme-ui'
 import React from 'react'
+/*
 import { graphql } from 'gatsby'
+
 import { AppLink } from '../components/AppLink'
 import { SEO } from '../components/seo'
 import { LinkDivider } from '../components/linkDivider'
 import { T2chIcon } from '../components/icons'
 import useTranslations from '../components/useTranslations'
-
-const Index = ({
-  data: {
-    site: {
-      siteMetadata: { author },
-    },
-  },
-}) => {
-  const { index, blog, about } = useTranslations()
+*/
+const Index = () => {
   return (
     <React.Fragment>
+      <h1>Hi</h1>
+      {/*
       <SEO />
-      <div sx={{ py: 4, fontSize: `1.5rem` }}>
+      <div sx={{ py: 4 }}>
         <Styled.h1>{index.hello}</Styled.h1>
         <p>{index.subline}</p>
         <AppLink sx={{ mr: 2 }} to="/about">
@@ -27,7 +24,7 @@ const Index = ({
         </AppLink>{' '}
         <AppLink to="/blog">{blog.title}</AppLink>
       </div>
-      <div sx={{ pb: 4, maxWidth: `container`, fontSize: `1.2rem` }}>
+      <div sx={{ pb: 4, maxWidth: `container` }}>
         <Styled.h2>{index.contacts}</Styled.h2>
         <p>
           <AppLink to={`mailto:${author.email}`}>{author.email}</AppLink>
@@ -38,7 +35,7 @@ const Index = ({
         <LinkDivider />
         <AppLink to={author.github}>Github</AppLink>
       </div>
-      <div sx={{ maxWidth: `container`, fontSize: `1.2em` }}>
+      <div sx={{ maxWidth: `container` }}>
         <Styled.h2>{index.projects.title}</Styled.h2>
         <div
           sx={{
@@ -58,12 +55,13 @@ const Index = ({
           </div>
         </div>
       </div>
+        */}
     </React.Fragment>
   )
 }
 
 export default Index
-
+/*
 export const query = graphql`
   query Index {
     site {
@@ -78,3 +76,4 @@ export const query = graphql`
     }
   }
 `
+*/

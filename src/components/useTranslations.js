@@ -37,16 +37,9 @@ const query = graphql`
             about
             toggleDarkMode
             toggleMenu
-            index {
-              hello
-              subline
-              contacts
-              projects {
-                title
-                t2ch {
-                  description
-                }
-              }
+            person {
+              name
+              profession
             }
             notFound {
               title
