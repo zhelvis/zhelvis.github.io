@@ -1,8 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /404/
-Disallow: /404.html
-Disallow: /ru/404/
-Disallow: /ru/404.html
-Sitemap: https://zhelvis.github.io/sitemap.xml
-Host: https://zhelvis.github.io
