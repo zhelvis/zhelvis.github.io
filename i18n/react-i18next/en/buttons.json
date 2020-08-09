@@ -1,0 +1,7 @@
+{
+    "theme": "Switch theme",
+    "nav": {
+        "open": "Open navigation",
+        "close": "Close navigation"
+    }
+}

@@ -1,26 +1,24 @@
 /** @jsx jsx */
 import { jsx, IconButton, useColorMode } from 'theme-ui'
-import useTranslations from './useTranslations'
 import { ThemeIcon } from './icons'
+import { useTranslation } from 'react-i18next'
 
-export const ThemeSwitch = () => {
-  const { toggleDarkMode } = useTranslations()
+const ThemeButton = () => {
   const [colorMode, setColorMode] = useColorMode()
+  const { t } = useTranslation('buttons')
   const isDark = colorMode === `dark`
   const toggleColorMode = () => {
     setColorMode(isDark ? `light` : `dark`)
   }
-  
+
   return (
     <IconButton
-      aria-label={toggleDarkMode}
+      aria-label={t(['buttons:theme', 'Switch theme'])}
       onClick={toggleColorMode}
-      sx={{
-        outlineStyle: 'none',
-        cursor: 'pointer',
-      }}
     >
-      <ThemeIcon sx={{ fill: 'text'}} />
+      <ThemeIcon sx={{ fill: 'text' }} />
     </IconButton>
   )
 }
+
+export default ThemeButton

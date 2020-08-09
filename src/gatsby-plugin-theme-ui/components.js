@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import Prism from '@theme-ui/prism'
-import { MdxLink } from '../components/mdxLink'
+import { MdxLink } from 'gatsby-theme-i18n'
 
 export default {
   pre: ({ children }) => (

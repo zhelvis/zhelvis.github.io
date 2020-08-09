@@ -1,22 +1,40 @@
 /** @jsx jsx */
 import { jsx, Styled } from 'theme-ui'
-import React from 'react'
-import { SEO } from '../components/seo'
-import useTranslations from '../components/useTranslations'
+import { Fragment } from 'react'
+import { LocalizedLink } from 'gatsby-theme-i18n'
+import { useTranslation } from 'react-i18next'
 
-const NotFound = () => {
-  const { notFound } = useTranslations()
+import SEO from '../components/seo'
+
+const Index = () => {
+  const { t } = useTranslation('404')
 
   return (
-    <React.Fragment>
+    <Fragment>
       <SEO
-        title={`404: ${notFound.title}`}
-        description={notFound.description}
+        title={t(['404:title', 'Not Found'])}
+        description={t(['404:description', 'This page does not exist'])}
       />
-      <Styled.h1 sx={{ fontSize: `3em` }}>404</Styled.h1>
-      <p>{notFound.content}</p>
-    </React.Fragment>
+      <div
+        sx={{
+          width: '100vw',
+          height: '100vh',
+          p: 3,
+        }}
+      >
+        <Styled.h1>404</Styled.h1>
+        <p>
+          {t([
+            '404:text',
+            'Right now you are on a page that does not exist. Do you exist yourself?',
+          ])}
+        </p>
+        <Styled.a as={LocalizedLink} to="/">
+          {t(['404:link', 'Back to home page'])}
+        </Styled.a>
+      </div>
+    </Fragment>
   )
 }
 
-export default NotFound
+export default Index

@@ -1,3 +1,9 @@
-body {
-  margin: 0;
+@keyframes drawer {
+    from {
+        transform: translateX(-100%);
+    }
+    
+    to {
+        transform: none;
+    }
 }

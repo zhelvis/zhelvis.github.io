@@ -1,84 +1,86 @@
 /** @jsx jsx */
-import { jsx, Styled } from 'theme-ui'
-import React from 'react'
+import { Styled, jsx } from 'theme-ui'
+import { Fragment } from 'react'
 import { graphql } from 'gatsby'
-import { AppLink } from '../components/AppLink'
-import { SEO } from '../components/seo'
-import useTranslations from '../components/useTranslations'
+import { LocalizedLink } from 'gatsby-theme-i18n'
+import { useTranslation } from 'react-i18next'
 
-const Blog = ({ data: { allMdx } }) => {
-  const { blog, m } = useTranslations()
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+
+const Blog = ({ data }) => {
+  const { t } = useTranslation('blog')
 
   return (
-    <React.Fragment>
-      <SEO title={blog.title} description={blog.description} />
-      <div sx={{ maxWidth: 'container' }}>
-        <ul
-          className="post-list"
-          sx={{
-            listStyle: 'none',
-            m: 0,
-            py: 4,
-            pl: 0,
-          }}
-        >
-          {allMdx.edges.map(({ node: post }) => (
-            <li
-              key={`${post.frontmatter.title}-${post.fields.locale}`}
-              sx={{
-                mb: 4,
-              }}
-            >
-              <Styled.h2
+    <Fragment>
+      <SEO
+        title={t(['blog:title', 'Blog'])}
+        description={t(['blog:description', 'List of blog posts'])}
+      />
+      <Layout path="/blog/">
+        <Styled.h1>{t(['blog:title', 'Blog'])}</Styled.h1>
+        <div sx={{ maxWidth: 768 }}>
+          <ul
+            className="post-list"
+            sx={{
+              listStyle: 'none',
+              m: 0,
+              pl: 0,
+            }}
+          >
+            {data.allFile.nodes.map(({ childMdx: post }) => (
+              <li
+                key={`${post.frontmatter.title}`}
                 sx={{
-                  m: 0,
+                  mb: 4,
                 }}
               >
-                <AppLink to={`/blog/${post.parent.relativeDirectory}`}>
-                  {post.frontmatter.title}
-                </AppLink>
-              </Styled.h2>
-              <small sx={{ fontWeight: `bold` }}>{post.frontmatter.date}</small>
-              <br />
-              <small
-                sx={{ fontStyle: `italic` }}
-              >{`${post.timeToRead} ${m}`}</small>
-              <p>{post.frontmatter.foreword}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </React.Fragment>
+                <Styled.h2
+                  sx={{
+                    m: 0,
+                  }}
+                >
+                  <Styled.a as={LocalizedLink} to={post.frontmatter.slug}>
+                    {post.frontmatter.title}
+                  </Styled.a>
+                </Styled.h2>
+                <small sx={{ fontWeight: `bold` }}>
+                  {post.frontmatter.date}
+                </small>
+                <br />
+                <small sx={{ fontStyle: `italic` }}>{`${post.timeToRead} ${t([
+                  'blog:m',
+                  'min read',
+                ])}`}</small>
+                <p>{post.frontmatter.foreword}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Layout>
+    </Fragment>
   )
 }
 
 export default Blog
 
 export const query = graphql`
-  query Blog($locale: String!, $dateFormat: String!) {
-    allMdx(
+  query($locale: String!, $dateFormat: String!) {
+    allFile(
       filter: {
-        fileAbsolutePath: { glob: "**/content/blog/**" }
-        fields: { locale: { eq: $locale } }
+        sourceInstanceName: { eq: "blog" }
+        childMdx: { fields: { locale: { eq: $locale } } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      edges {
-        node {
+      nodes {
+        childMdx {
           frontmatter {
+            slug
             title
             date(formatString: $dateFormat)
             foreword
           }
           timeToRead
-          fields {
-            locale
-          }
-          parent {
-            ... on File {
-              relativeDirectory
-            }
-          }
         }
       }
     }

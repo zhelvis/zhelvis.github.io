@@ -1,37 +1,13 @@
 /** @jsx jsx */
 import { jsx, IconButton } from 'theme-ui'
-import { keyframes } from '@emotion/core'
 import { useState } from 'react'
-import { Drawer } from './drawer'
+import { useTranslation } from 'react-i18next'
 
 import { MenuIcon, CloseIcon } from './icons'
-import { NavLink } from './navLink'
-import useTranslations from './useTranslations'
-
-const animation = keyframes`
-  from {
-    transform: translateX(-100%);
-  }
-
-  to {
-    transform: none;
-  }
-`
-
-const Nav = ({ ...props }) => (
-  <nav
-    sx={{
-      p: 3,
-      display: `grid`,
-      alignItems: 'flex-start',
-      fontSize: `1.2rem`,
-    }}
-    {...props}
-  />
-)
+import Drawer from './drawer'
 
 export const MobileNavigation = ({ children, ...props }) => {
-  const { backToHome, about, home, blog, toggleMenu } = useTranslations()
+  const { t } = useTranslation('buttons')
   const [isOpen, setOpenBoolean] = useState(false)
 
   return (
@@ -41,7 +17,7 @@ export const MobileNavigation = ({ children, ...props }) => {
           outlineStyle: 'none',
           cursor: 'pointer',
         }}
-        aria-label={toggleMenu}
+        aria-label={t(['buttons:nav.open', 'Open navigation'])}
         onClick={() => setOpenBoolean(true)}
       >
         <MenuIcon sx={{ fill: `text` }} />
@@ -63,30 +39,15 @@ export const MobileNavigation = ({ children, ...props }) => {
           sx={{
             display: `flex`,
             height: `inherit`,
-            animation: `${animation} 0.2s ease-out 0s`,
+            animation: 'drawer 0.2s ease-out 0s',
           }}
         >
           <Drawer
             sx={{
               backgroundColor: `background`,
             }}
-          >
-            <Nav>
-              <NavLink
-                onClick={() => setOpenBoolean(false)}
-                to="/"
-                aria-label={backToHome}
-              >
-                {home}
-              </NavLink>
-              <NavLink onClick={() => setOpenBoolean(false)} to="/about">
-                {about}
-              </NavLink>
-              <NavLink onClick={() => setOpenBoolean(false)} to="/blog">
-                {blog.title}
-              </NavLink>
-            </Nav>
-          </Drawer>
+            handleClose={() => setOpenBoolean(false)}
+          />
           <div
             sx={{
               height: '3.5em',
@@ -96,7 +57,7 @@ export const MobileNavigation = ({ children, ...props }) => {
             }}
           >
             <IconButton
-              aria-label={toggleMenu}
+              aria-label={t(['buttons:nav.close', 'Close navigation'])}
               onClick={() => setOpenBoolean(false)}
               sx={{
                 color: 'hsl(210, 50%, 96%)',
@@ -108,18 +69,19 @@ export const MobileNavigation = ({ children, ...props }) => {
             </IconButton>
           </div>
         </div>
+        {/* eslint-disable */}
         <div
+          aria-label={t(['buttons:nav.close', 'Close navigation'])}
           sx={{ height: `inherit`, flexGrow: `1` }}
           onClick={() => setOpenBoolean(false)}
         />
+        {/* eslint-enable */}
       </div>
     </div>
   )
 }
 
 export const DesktopNavigation = () => {
-  const { backToHome, about, home, blog } = useTranslations()
-
   return (
     <Drawer
       sx={{
@@ -127,16 +89,8 @@ export const DesktopNavigation = () => {
         position: 'fixed',
         top: 0,
         left: 0,
-        backgroundColor: `background-alt-2`,
+        backgroundColor: `muted`,
       }}
-    >
-      <Nav>
-        <NavLink to="/" aria-label={backToHome}>
-          {home}
-        </NavLink>
-        <NavLink to="/about">{about}</NavLink>
-        <NavLink to="/blog">{blog.title}</NavLink>
-      </Nav>
-    </Drawer>
+    />
   )
 }

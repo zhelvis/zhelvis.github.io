@@ -1,79 +1,75 @@
 /** @jsx jsx */
-import { jsx, Styled } from 'theme-ui'
-import React from 'react'
-/*
-import { graphql } from 'gatsby'
+import { jsx, Button } from 'theme-ui'
+import { Fragment } from 'react'
+import { LocalizedLink } from 'gatsby-theme-i18n'
+import loadable from '@loadable/component'
+import { useTranslation } from 'react-i18next'
 
-import { AppLink } from '../components/AppLink'
-import { SEO } from '../components/seo'
-import { LinkDivider } from '../components/linkDivider'
-import { T2chIcon } from '../components/icons'
-import useTranslations from '../components/useTranslations'
-*/
+import SEO from '../components/seo'
+import Bio from '../components/bio'
+import ThemeButton from '../components/themeButton'
+import LocalePanel from '../components/localePanel'
+
+const BackgroundAnimation = loadable(() =>
+  import('../components/backgroundAnimation')
+)
+
 const Index = () => {
+  const { t } = useTranslation(['index', 'navigation'])
+
   return (
-    <React.Fragment>
-      <h1>Hi</h1>
-      {/*
-      <SEO />
-      <div sx={{ py: 4 }}>
-        <Styled.h1>{index.hello}</Styled.h1>
-        <p>{index.subline}</p>
-        <AppLink sx={{ mr: 2 }} to="/about">
-          {about}
-        </AppLink>{' '}
-        <AppLink to="/blog">{blog.title}</AppLink>
-      </div>
-      <div sx={{ pb: 4, maxWidth: `container` }}>
-        <Styled.h2>{index.contacts}</Styled.h2>
-        <p>
-          <AppLink to={`mailto:${author.email}`}>{author.email}</AppLink>
-        </p>
-        <AppLink to={author.telegram}>Telegram</AppLink>
-        <LinkDivider />
-        <AppLink to={author.vk}>VK</AppLink>
-        <LinkDivider />
-        <AppLink to={author.github}>Github</AppLink>
-      </div>
-      <div sx={{ maxWidth: `container` }}>
-        <Styled.h2>{index.projects.title}</Styled.h2>
-        <div
+    <Fragment>
+      <SEO
+        title={t(['index:title', 'Vladimir Zhelvis'])}
+        description={t(['index:description', 'My personal website'])}
+      />
+      <BackgroundAnimation />
+      <div
+        sx={{
+          width: '100vw',
+          height: '100vh',
+        }}
+      >
+        <header
           sx={{
-            display: `flex`,
-            alignItems: `center`,
-            flexWrap: `wrap`,
+            px: 3,
+            height: '3.5rem',
+            display: 'flex',
+            alignItems: 'center',
+            flexDirection: 'row-reverse',
           }}
         >
-          <div sx={{ maxWidth: 96 }}>
-            <T2chIcon sx={{ width: `100%`, heght: `100%`, fill: `text` }} />
+          <ThemeButton />
+          <LocalePanel path="/" />
+        </header>
+        <main
+          sx={{
+            mt: [3, 4],
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Bio />
+          <div
+            sx={{
+              mt: 3,
+              display: 'grid',
+              gap: [3, 2],
+              gridTemplateColumns: ['1fr', '1fr 1fr'],
+            }}
+          >
+            <Button variant="primary" as={LocalizedLink} to="/blog/">
+              {t(['navigation:blog', 'Blog'])}
+            </Button>
+            <Button variant="primary" as={LocalizedLink} to="/about/">
+              {t(['navigation:about', 'About'])}
+            </Button>
           </div>
-          <div sx={{ ml: [0, 3], pt: [3, 0] }}>
-            <Styled.h3 sx={{ m: 0 }}>
-              <AppLink to="https://t2ch.github.io/">T2CH</AppLink>
-            </Styled.h3>
-            <p>{index.projects.t2ch.description}</p>
-          </div>
-        </div>
+        </main>
       </div>
-        */}
-    </React.Fragment>
+    </Fragment>
   )
 }
 
 export default Index
-/*
-export const query = graphql`
-  query Index {
-    site {
-      siteMetadata {
-        author {
-          telegram
-          github
-          vk
-          email
-        }
-      }
-    }
-  }
-`
-*/

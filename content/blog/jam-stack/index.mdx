@@ -3,7 +3,8 @@ title: 'JAMstack. Modern way to create static sites'
 date: 2019-12-09
 description: 'In this article, we will understand what JAMstack is and create a simple blog using GatsbyJS'
 foreword: 'Do you want to create blazing fast sites, using your favorite web framework, with support for the latest
-SEO, PWA and interface availability recommendations without writing a single line of server code? You are welcome!' 
+SEO, PWA and interface availability recommendations without writing a single line of server code? You are welcome!'
+slug: /blog/jam-stack/ 
 ---
 
 Do you want to create blazing fast sites, using your favorite web framework, with support for the latest
@@ -20,34 +21,34 @@ Despite the name, this is not a set of tools, but a general approach to applicat
 - APIs – Data sources from which static pages will be generated. Anything can serve as a source: databases, CMS or git repository
 
 - Markup – Literally, this is the markup of the site. At the primitive level, these are interconnected html files.
-  But often the use of static site generator (SSG), which create pages from received data according to a predetermined pattern
+    But often the use of static site generator (SSG), which create pages from received data according to a predetermined pattern
 
 ## Architecture
 
 ![Architecture JAM](./JAM_stack.png)
 
-Cloud services are used as a backend. All development comes down to designing templates for SSG, which hosted in git repository with data. 
-The repository connects to [continuous delivery service (CD)](https://aws.amazon.com/devops/continuous-delivery/), 
-which tracks changes in source code, runs the generator and places the resulting pages in 
-[content delivery network (CDN)](https://en.wikipedia.org/wiki/Content_delivery_network). Developers update the site 
+Cloud services are used as a backend. All development comes down to designing templates for SSG, which hosted in git repository with data.
+The repository connects to [continuous delivery service (CD)](https://aws.amazon.com/devops/continuous-delivery/),
+which tracks changes in source code, runs the generator and places the resulting pages in
+[content delivery network (CDN)](https://en.wikipedia.org/wiki/Content_delivery_network). Developers update the site
 by sending commits to the repository directly, and non-technical specialists use a cloud-based CMS, also connected to the repository.
 
 ## Benefits of JAMstack
 
 ### High load speed and fault tolerance
 
-Since all pages are created in advance, the server does not waste time requesting and parsing data, 
+Since all pages are created in advance, the server does not waste time requesting and parsing data,
 which allows you to process more requests per second.
 
 ### Security
 
-The logic of interaction is reduced to transferring the created file by get-request. 
+The logic of interaction is reduced to transferring the created file by get-request.
 Simpler the system, the less potential vulnerabilities in it.
 
 ### Scalability and low support costs
 
-Through the use of CDN, a stable fast response time and high uptime are ensured. Easy integration of the git repository 
-with [continuous integration and delivery services (CI/CD)](https://en.wikipedia.org/wiki/CI/CD) allows you to effectively 
+Through the use of CDN, a stable fast response time and high uptime are ensured. Easy integration of the git repository
+with [continuous integration and delivery services (CI/CD)](https://en.wikipedia.org/wiki/CI/CD) allows you to effectively
 automate the process of developing, testing, deploying and scaling of application.
 
 ## Limitations of JAMstack
@@ -58,10 +59,8 @@ Any change of data in repository causes a redeployment of project to CD, which m
 
 ### Loading dynamic data
 
-If you need pages that must provide dynamic or time sensitive data, then we will have to request and cache 
-them on the client side after loading the page. This is not a perfect solution.
-
-> It is better to use traditional approaches with server rendering, when you have a large amount of dynamic content.
+If you need pages that must provide dynamic or time sensitive data, then we will have to request and cache
+them on the client side after loading the page. This is not always a perfect solution.
 
 ## Usage
 
@@ -71,17 +70,17 @@ any other static sites where the speed of updating content is fading into the ba
 ## Blog development example Using Gatsby, Netlify, NetlifyCMS, and GitHub
 
 > This guide assumes that you are already familiar with [NodeJS](https://nodejs.org/en/) software platform,
-> [git](https://git-scm.com/) console client, [React](https://reactjs.org/) library 
+> [git](https://git-scm.com/) console client, [React](https://reactjs.org/) library
 > and have [GitHub](https://github.com/) account.
 
 There are a huge number of tools for creating JAM applications. The following stack will be used in this example:
 
-- [Gatsby](https://www.gatsbyjs.org/) – Open source generator of static sites from React + GraphQL applications. 
-On the one hand, it has a convenient plugin system, which allows you to develop sites with minimal time, 
-on the other hand have very flexible configuration.
+- [Gatsby](https://www.gatsbyjs.org/) – Open source generator of static sites from React + GraphQL applications.
+  On the one hand, it has a convenient plugin system, which allows you to develop sites with minimal time,
+  on the other hand have very flexible configuration.
 
-- [NetlifyCMS](https://www.netlifycms.org/) – Open source content management system that separates 
-the data layer from the display layer (headless CMS). It has convenient integration with git repositories.
+- [NetlifyCMS](https://www.netlifycms.org/) – Open source content management system that separates
+  the data layer from the display layer (headless CMS). It has convenient integration with git repositories.
 
 - [Netlify](https://www.netlify.com/) – Shareware cloud platform providing tools for continuous deployment and its own CDN.
 
@@ -143,7 +142,7 @@ You can browse the site at http://localhost:8000/.
 
 ![site starter](./starter.jpg)
 
-You also have a browser for GraphQL (http://localhost:8000/___graphql), where you can view the data 
+You also have a browser for GraphQL (http://localhost:8000/___graphql), where you can view the data
 and query patterns that are used when rendering pages.
 
 ![graphQL browser](./graphQL.jpg)
@@ -156,7 +155,7 @@ mkdir content
 
 And add the file `first_post.md` with the following content:
 
-```md
+```
 ---
 path: '/blog/my-first-post'
 date: '2019-12-09'
@@ -166,17 +165,16 @@ title: 'My first blog post'
 # Hello world!
 
 this is my first blog post in markdown.
-
 ```
 
-We declare a set of variables at the beginning of `first_post.md` using [yaml](https://ru.wikipedia.org/wiki/YAML) syntax, called 
+We declare a set of variables at the beginning of `first_post.md` using [yaml](https://ru.wikipedia.org/wiki/YAML) syntax, called
 frontmatter.
 
-In order for Gatsby to automatically create pages from markdown files and recognize data from frontmatter, 
+In order for Gatsby to automatically create pages from markdown files and recognize data from frontmatter,
 we need to use two plugins:
 
-- [gatsby-source-filesystem](https://www.gatsbyjs.org/packages/gatsby-source-filesystem/) — imports data into the application from 
-local file system
+- [gatsby-source-filesystem](https://www.gatsbyjs.org/packages/gatsby-source-filesystem/) — imports data into the application from
+  local file system
 
 - [gatsby-transformer-remark](https://www.gatsbyjs.org/packages/gatsby-transformer-remark/) — Transform markdown to React components
 
@@ -203,12 +201,12 @@ plugins: [
 
 ```
 
-Restart our development server. Going to the graphQL browser, we will see that new data has become available to us. 
+Restart our development server. Going to the graphQL browser, we will see that new data has become available to us.
 We will send test request and get valid response.
 
 ![Test request](./blog_req.jpg)
 
-We managed to add a new data source for our generator! It remains only to display 
+We managed to add a new data source for our generator! It remains only to display
 content on the site.
 
 First of all, create a blog page template in file `src/templates/blogPost.js`:
@@ -247,7 +245,7 @@ export const pageQuery = graphql`
 `
 ```
 
-Now we program in `gatsby-node.js`, how posts will be rendered. 
+Now we program in `gatsby-node.js`, how posts will be rendered.
 To do this, we use the `createPages` API described in the specification [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/):
 
 ```js
@@ -288,13 +286,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 }
 ```
 
-Our post will be available at http://localhost:8000/blog/first-post/ 
+Our post will be available at http://localhost:8000/blog/first-post/
 
 ![post page](./first_post_page.jpg)
 
 It's time to write a second post! Create file `content/second-post.md`:
 
-```md
+```
 ---
 path: '/blog/second-post'
 date: '2019-12-09'
@@ -409,8 +407,8 @@ Specify build command, and select the `public` folder as the path to the statics
 
 ![Options](./netlify_third_step.jpg)
 
-During building, Netlify downloads the source code from Github, launches Gatsby, and deploy project in its own 
-CDN with adding random domain and SSL certificate. In the settings you can change the domain to your own, as well 
+During building, Netlify downloads the source code from Github, launches Gatsby, and deploy project in its own
+CDN with adding random domain and SSL certificate. In the settings you can change the domain to your own, as well
 as familiarize yourself with real-time CD process logs.
 
 ![Project building](./netlify_CD.jpg)
@@ -424,16 +422,16 @@ When you send commit to master branch, Netlify automatically redeploy the site.
 
 ### Connect NetlifyCMS
 
-At this stage, we can edit, add and delete posts by sending commits to GitHub. 
+At this stage, we can edit, add and delete posts by sending commits to GitHub.
 But it’s much more convenient to use a Content Management System for this.
 
 Add a couple of new dependencies to the project:
 
-- [netlify-cms-app](https://www.npmjs.com/package/netlify-cms-app) – Content dashboard for static sites, which is 
-client-side React Single Page Application.
+- [netlify-cms-app](https://www.npmjs.com/package/netlify-cms-app) – Content dashboard for static sites, which is
+  client-side React Single Page Application.
 
-- [gatsby-plugin-netlify-cms](https://www.gatsbyjs.org/packages/gatsby-plugin-netlify-cms/?=gatsby-pligin-net) – Gatsby plugin, 
-that adds `netlify-cms-app` to the SSG build.
+- [gatsby-plugin-netlify-cms](https://www.gatsbyjs.org/packages/gatsby-plugin-netlify-cms/?=gatsby-pligin-net) – Gatsby plugin,
+  that adds `netlify-cms-app` to the SSG build.
 
 ```
 npm i netlify-cms-app gatsby-plugin-netlify-cms
@@ -443,10 +441,7 @@ npm i netlify-cms-app gatsby-plugin-netlify-cms
 And connect plugin in `gatsby-config.js`:
 
 ```js
-plugins: [
-    ...
-    `gatsby-plugin-netlify-cms`
-]
+plugins: [...`gatsby-plugin-netlify-cms`]
 ```
 
 Create file `config.yml` in folder `static/admin` with the following content:

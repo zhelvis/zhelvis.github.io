@@ -1,38 +1,17 @@
 export default {
-  '.attr-name': {
-    fontStyle: `italic`,
+  '.comment,.prolog,.doctype,.cdata,.punctuation,.operator,.entity,.url': {
+    color: 'gray',
   },
   '.comment': {
-    color: `prism.comment`,
+    fontStyle: 'italic',
   },
-  '.attr-name, .string, .url': {
-    color: `prism.string`,
+  '.property, .tag, .boolean, .number, .constant, .symbol, .deleted, .function, .class-name, .regex, .important, .variable': {
+    color: 'accent',
   },
-  '.variable': {
-    color: `prism.var`,
+  '.atrule, .attr-value, .keyword': {
+    color: 'primary',
   },
-  '.number': {
-    color: `prism.number`,
-  },
-  '.builtin, .char, .constant, .function': {
-    color: `prism.constant`,
-  },
-  '.punctuation, .selector, .doctype': {
-    color: `prism.punctuation`,
-  },
-  '.class-name': {
-    color: `prism.className`,
-  },
-  '.tag, .operator, .keyword': {
-    color: `prism.tag`,
-  },
-  '.boolean': {
-    color: `prism.boolean`,
-  },
-  '.property': {
-    color: `prism.property`,
-  },
-  '.namespace': {
-    color: `prism.namespace`,
+  '.selector, .attr-name, .string, .char, .builtin, .inserted': {
+    color: 'secondary',
   },
 }

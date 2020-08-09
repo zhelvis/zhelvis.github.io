@@ -12,15 +12,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
         path: `${__dirname}/src/images`,
+        name: `images`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/config/translations`,
-        name: `translations`,
+        path: `${__dirname}/src/pages`,
+        name: `pages`,
       },
     },
     {
@@ -35,6 +35,22 @@ module.exports = {
       options: {
         path: `${__dirname}/content/about`,
         name: `about`,
+      },
+    },
+    {
+      resolve: `gatsby-theme-i18n`,
+      options: {
+        defaultLang: `en`,
+        configPath: require.resolve(`./i18n/config.json`),
+      },
+    },
+    {
+      resolve: `gatsby-theme-i18n-react-i18next`,
+      options: {
+        locales: `./i18n/react-i18next`,
+        i18nextOptions: {
+          ns: ['navigation', 'bio', 'buttons', 'index', 'blog', '404'],
+        },
       },
     },
     `gatsby-transformer-sharp`,
@@ -52,24 +68,13 @@ module.exports = {
             },
           },
         ],
-        plugins: [`gatsby-remark-images`],
+        defaultLayouts: {
+          default: require.resolve(`./src/components/layout.js`),
+        },
       },
     },
     `gatsby-plugin-theme-ui`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-transformer-json`,
-    {
-      resolve: 'gatsby-plugin-robots-txt',
-      options: {
-        policy: [
-          {
-            userAgent: '*',
-            allow: '/',
-            disallow: [`/404/`, `/404.html`, '/ru/404/', `/ru/404.html`],
-          },
-        ],
-      },
-    },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -83,17 +88,10 @@ module.exports = {
         name: `Vladimir Zhelvis`,
         short_name: `Zhelvis`,
         start_url: `/`,
-        background_color: `hsl(10,10%,98%)`,
+        background_color: `#ffffff`,
         theme_color: `black`,
         display: `minimal-ui`,
         icon: `src/images/icon.png`,
-      },
-    },
-    `gatsby-plugin-remove-serviceworker`,
-    {
-      resolve: `gatsby-plugin-sitemap`,
-      options: {
-        exclude: ['/ru/404/', `/ru/404.html`],
       },
     },
   ],
