@@ -4,7 +4,7 @@ export default {
   primary: '#3333ee',
   secondary: '#111199',
   highlight: '#efeffe',
-  muted: '#f6f6f6',
+  muted: 'hsla(0, 0%, 70%, 20%)',
   accent: '#660099',
   gray: '#777777',
   modes: {

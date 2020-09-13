@@ -11,7 +11,7 @@ const Bio = ({ children, ...props }) => {
 
   const data = useStaticQuery(graphql`
     query BioQuery {
-      avatar: file(relativePath: { eq: "avatar.jpg" }) {
+      avatar: file(relativePath: { eq: "avatar.png" }) {
         childImageSharp {
           fixed(width: 96, height: 96) {
             ...GatsbyImageSharpFixed
@@ -44,7 +44,12 @@ const Bio = ({ children, ...props }) => {
       }}
     >
       <Img
-        sx={{ width: 96, height: 96 }}
+        sx={{
+          width: 96,
+          height: 96,
+          borderRadius: `50%`,
+          backgroundColor: `muted`,
+        }}
         imgStyle={{
           borderRadius: `50%`,
         }}
