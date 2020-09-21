@@ -2,6 +2,7 @@ export default {
   navlink: {
     py: 1,
     px: 2,
+    borderRadius: 3,
     color: `inherit`,
     fontWeight: `bold`,
     textDecoration: `none`,
@@ -16,7 +17,6 @@ export default {
       fontWeight: 'bold',
       color: 'background',
       bg: 'primary',
-      transition: 'backgroundColor 0.15s',
       '&:hover': {
         bg: 'text',
       },
