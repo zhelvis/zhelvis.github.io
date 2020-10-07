@@ -12,6 +12,13 @@ export default {
       backgroundColor: `highlight`,
     },
   },
+  heading: {
+    color: `text`,
+    textDecoration: `none`,
+    '&:hover': {
+      color: 'secondary',
+    },
+  },
   buttons: {
     primary: {
       fontWeight: 'bold',

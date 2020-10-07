@@ -1,5 +1,8 @@
 {
     "title": "Blog",
     "description": "List of blog posts",
-    "m": "min read"
+    "m": "min read",
+    "content": "Content",
+    "calendar": "calendar",
+    "time": "time"
 }

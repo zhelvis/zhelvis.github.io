@@ -31,13 +31,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/about`,
-        name: `about`,
-      },
-    },
-    {
       resolve: `gatsby-theme-i18n`,
       options: {
         defaultLang: `en`,
@@ -49,7 +42,7 @@ module.exports = {
       options: {
         locales: `./i18n/react-i18next`,
         i18nextOptions: {
-          ns: ['navigation', 'bio', 'buttons', 'index', 'blog', '404'],
+          ns: ['navigation', 'bio', 'buttons', 'index', 'blog', '404', 'about'],
         },
       },
     },
@@ -68,6 +61,7 @@ module.exports = {
             },
           },
         ],
+        rehypePlugins: [require('rehype-slug')],
         defaultLayouts: {
           default: require.resolve(`./src/components/layout.js`),
         },

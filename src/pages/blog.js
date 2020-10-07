@@ -35,23 +35,24 @@ const Blog = ({ data }) => {
                   mb: 4,
                 }}
               >
-                <Styled.h2
-                  sx={{
-                    m: 0,
-                  }}
-                >
+                <Styled.h2>
                   <Styled.a as={LocalizedLink} to={post.frontmatter.slug}>
                     {post.frontmatter.title}
                   </Styled.a>
                 </Styled.h2>
-                <small sx={{ fontWeight: `bold` }}>
-                  {post.frontmatter.date}
+                <small>
+                  <span role="img" aria-label="calendar">
+                    📅
+                  </span>{' '}
+                  <b>{post.frontmatter.date}</b>
                 </small>
                 <br />
-                <small sx={{ fontStyle: `italic` }}>{`${post.timeToRead} ${t([
-                  'blog:m',
-                  'min read',
-                ])}`}</small>
+                <small>
+                  <span role="img" aria-label="time">
+                    ⏱
+                  </span>{' '}
+                  <i>{`${post.timeToRead} ${t(['blog:m', 'min read'])}`}</i>
+                </small>
                 <p>{post.frontmatter.foreword}</p>
               </li>
             ))}

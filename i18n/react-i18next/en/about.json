@@ -1,0 +1,26 @@
+{
+    "title": "About  me",
+    "description": "Brief information about me",
+    "education": "Education",
+    "university": "The Peoples' Friendship University of Russia",
+    "department": "Engineering academy",
+    "specialization": "Applied Mathematics and Computer Science",
+    "bachelor": "bachelor`s degree",
+    "master": "master`s degree",
+    "companies": "Companies",
+    "admin": "System administrator",
+    "support": "Technical support of office local network",
+    "DaSrategy": "DaSrategy",
+    "Frontend": "Frontend web developer",
+    "DaSactivity": "Development of interactive annual reports, ERP/CRM systems prototyping",
+    "fullstack": "Fullstack JS developer",
+    "T2CHactivity": "Development of an overlay peer-to-peer network for an open blockchain platform. Development of a block explorer. Development of a node`s console interface",
+    "sp": "SP Zhelvis Vladimir Algirdovich",
+    "spPosition": "CEO, software developer",
+    "spActivity": "Operational management, system architecture design, software development",
+    "since": "since",
+    "inforser": "Inforser",
+    "engineer": "Software engineer",
+    "infActivity": "ERP/CRM systems development"
+
+}

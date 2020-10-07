@@ -17,7 +17,7 @@ const Layout = ({ children, path }) => (
         sx={{
           display: `flex`,
           alignItems: `center`,
-          height: '3.5em',
+          height: '3.5rem',
           position: 'fixed',
           width: ['100%', `calc(100% - 18em)`],
           top: 0,
