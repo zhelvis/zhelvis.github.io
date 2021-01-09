@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Styled, jsx } from 'theme-ui'
+import { Themed, jsx } from 'theme-ui'
 import { Fragment } from 'react'
 import { graphql } from 'gatsby'
 import { slug } from 'github-slugger'
@@ -20,24 +20,26 @@ const BlogTemplate = ({ data: { mdx } }) => {
       />
       <Layout path={mdx.frontmatter.slug}>
         <div sx={{ maxWidth: 768 }}>
-          <Styled.h1>{mdx.frontmatter.title}</Styled.h1>
+          <Themed.h1>{mdx.frontmatter.title}</Themed.h1>
           📅 <b>{mdx.frontmatter.date}</b>
           <br />⌚ <i>{`${mdx.timeToRead} ${t(['blog:m', 'min read'])}`}</i>
-          <Styled.p>{mdx.frontmatter.foreword}</Styled.p>
-          <b>{t(['blog:content', 'Content'])}</b>
-          <Styled.ul>
-            {mdx.headings
-              .filter((link) => link.depth === 2)
-              .map((link, i) => {
-                return (
-                  <li key={i}>
-                    <Styled.a href={`#${slug(link.value)}`}>
-                      {link.value}
-                    </Styled.a>
-                  </li>
-                )
-              })}
-          </Styled.ul>
+          <Themed.p>{mdx.frontmatter.foreword}</Themed.p>
+          <div sx={{ variant: 'paper' }}>
+            <b>{t(['blog:content', 'Content'])}</b>
+            <Themed.ul>
+              {mdx.headings
+                .filter((link) => link.depth === 2)
+                .map((link, i) => {
+                  return (
+                    <li key={i}>
+                      <Themed.a href={`#${slug(link.value)}`}>
+                        {link.value}
+                      </Themed.a>
+                    </li>
+                  )
+                })}
+            </Themed.ul>
+          </div>
           <div>
             <MDXRenderer>{mdx.body}</MDXRenderer>
           </div>

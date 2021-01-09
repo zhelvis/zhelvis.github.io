@@ -88,6 +88,35 @@ module.exports = {
         icon: `src/images/icon.png`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [
+          {
+            userAgent: '*',
+            allow: '/',
+            disallow: [
+              `/404/`,
+              `/404.html`,
+              '/offline-plugin-app-shell-fallback/',
+              '/ru/404/',
+              '/ru/404.html',
+              '/ru/offline-plugin-app-shell-fallback/',
+            ],
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: [
+          '/ru/404/',
+          '/ru/404.html',
+          '/ru/offline-plugin-app-shell-fallback/',
+        ],
+      },
+    },
     `gatsby-plugin-offline`,
   ],
 }

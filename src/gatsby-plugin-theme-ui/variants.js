@@ -33,4 +33,10 @@ export default {
       cursor: 'pointer',
     },
   },
+  paper: {
+    border: '1px solid',
+    borderColor: 'muted',
+    borderRadius: 3,
+    p: 3,
+  },
 }

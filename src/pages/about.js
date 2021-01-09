@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Styled } from 'theme-ui'
+import { jsx, Themed } from 'theme-ui'
 import { Fragment } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -17,7 +17,8 @@ const List = ({ children }) => (
   <ul
     sx={{
       listStyle: 'none',
-      mt: 4,
+      m: 0,
+      //my: 3,
       pl: 0,
     }}
   >
@@ -26,8 +27,15 @@ const List = ({ children }) => (
 )
 
 const ListItem = ({ children, icon: Icon, title: Title }) => (
-  <li sx={{ mb: 4 }}>
-    <div sx={{ display: 'flex', flexDirection: ['column', 'row'] }}>
+  <li>
+    <div
+      sx={{
+        display: 'flex',
+        flexDirection: ['column', 'row'],
+        variant: 'paper',
+        mb: 3,
+      }}
+    >
       {Icon && (
         <div
           sx={{
@@ -60,7 +68,7 @@ const EducationItem = ({
   years,
 }) => (
   <ListItem icon={icon} title={title}>
-    <p sx={{ mt: 2 }}>
+    <p sx={{ mt: 3, mb: 0 }}>
       <b>{specialization}</b>
       <br />
       {department}
@@ -75,7 +83,7 @@ const EducationItem = ({
 
 const CompanyItem = ({ icon, title, activity, position, years }) => (
   <ListItem icon={icon} title={title}>
-    <p sx={{ mt: 2 }}>
+    <p sx={{ mt: 3, mb: 0 }}>
       <b>{position}</b>
       <br />
       {activity}
@@ -97,20 +105,20 @@ const About = () => {
       />
       <Layout path="/about/">
         <div sx={{ maxWidth: 768 }}>
-          <Styled.h1>{t(['about:title', 'About me'])}</Styled.h1>
-          <Styled.h2>{t(['about:education', 'Education'])}</Styled.h2>
+          <Themed.h1>{t(['about:title', 'About me'])}</Themed.h1>
+          <Themed.h2>{t(['about:education', 'Education'])}</Themed.h2>
           <List>
             <EducationItem
               icon={() => <RudnIcon sx={{ fill: 'text' }} />}
               title={() => (
-                <Styled.h3 sx={{ m: 0 }}>
-                  <Styled.a href="http://eng.rudn.ru/">
+                <Themed.h3 sx={{ m: 0 }}>
+                  <Themed.a href="http://eng.rudn.ru/">
                     {t([
                       'about:university',
                       'The Peoples` Friendship University of Russia',
                     ])}
-                  </Styled.a>
-                </Styled.h3>
+                  </Themed.a>
+                </Themed.h3>
               )}
               department={t(['about:department', 'Engineering academy'])}
               specialization={t([
@@ -123,14 +131,14 @@ const About = () => {
             <EducationItem
               icon={() => <RudnIcon sx={{ fill: 'text' }} />}
               title={() => (
-                <Styled.h3 sx={{ m: 0 }}>
-                  <Styled.a href="http://www.rudn.ru/">
+                <Themed.h3 sx={{ m: 0 }}>
+                  <Themed.a href="http://eng.rudn.ru/">
                     {t([
                       'about:university',
                       'The Peoples` Friendship University of Russia',
                     ])}
-                  </Styled.a>
-                </Styled.h3>
+                  </Themed.a>
+                </Themed.h3>
               )}
               department={t(['about:department', 'Engineering academy'])}
               specialization={t([
@@ -138,19 +146,19 @@ const About = () => {
                 'Applied Mathematics and Computer Science',
               ])}
               degree={t(['about:master', 'master`s degree'])}
-              years="2020-2022"
+              years={`${t(['about:since', 'since'])} 2020`}
             />
           </List>
-          <Styled.h2>{t(['about:companies', 'Companies'])}</Styled.h2>
+          <Themed.h2>{t(['about:companies', 'Companies'])}</Themed.h2>
           <List>
             <CompanyItem
               icon={() => (
                 <VistaIcon sx={{ fill: 'text', width: 100, height: 100 }} />
               )}
               title={() => (
-                <Styled.h3 sx={{ m: 0 }}>
-                  <Styled.a href="http://vista-co.ru/">Vista group</Styled.a>
-                </Styled.h3>
+                <Themed.h3 sx={{ m: 0 }}>
+                  <Themed.a href="http://vista-co.ru/">Vista group</Themed.a>
+                </Themed.h3>
               )}
               position={t(['about:admin', 'System Administrator'])}
               activity={t([
@@ -164,11 +172,11 @@ const About = () => {
                 <DasIcon sx={{ fill: 'text', width: 100, height: 100 }} />
               )}
               title={() => (
-                <Styled.h3 sx={{ m: 0 }}>
-                  <Styled.a href="https://da-strateg.ru/">
+                <Themed.h3 sx={{ m: 0 }}>
+                  <Themed.a href="https://da-strateg.ru/">
                     {t(['about:daStrategy', 'DaStrategy'])}
-                  </Styled.a>
-                </Styled.h3>
+                  </Themed.a>
+                </Themed.h3>
               )}
               position={t(['about:frontend', 'Frontend developer'])}
               activity={t([
@@ -182,9 +190,9 @@ const About = () => {
                 <T2chIcon sx={{ fill: 'text', width: 100, height: 100 }} />
               )}
               title={() => (
-                <Styled.h3 sx={{ m: 0 }}>
-                  <Styled.a href="https://t2ch.io/">Time2Chain</Styled.a>
-                </Styled.h3>
+                <Themed.h3 sx={{ m: 0 }}>
+                  <Themed.a href="https://t2ch.io/">Time2Chain</Themed.a>
+                </Themed.h3>
               )}
               position={t(['about:fullstack', 'Fullstack JS developer'])}
               activity={t([
@@ -202,9 +210,9 @@ const About = () => {
                 />
               )}
               title={() => (
-                <Styled.h3 sx={{ m: 0 }}>
+                <Themed.h3 sx={{ m: 0 }}>
                   {t(['about:sp', 'SP Zhelvis Vladimir Algirdovich'])}
-                </Styled.h3>
+                </Themed.h3>
               )}
               position={t(['about:spPosition', 'CEO, software developer'])}
               activity={t([
@@ -222,11 +230,11 @@ const About = () => {
                 />
               )}
               title={() => (
-                <Styled.h3 sx={{ m: 0 }}>
-                  <Styled.a href="https://inforser.ru/">
+                <Themed.h3 sx={{ m: 0 }}>
+                  <Themed.a href="https://inforser.ru/">
                     {t(['about:inforser', 'Inforser'])}
-                  </Styled.a>
-                </Styled.h3>
+                  </Themed.a>
+                </Themed.h3>
               )}
               position={t(['about:engineer', 'Software engineer'])}
               activity={t(['about:infActivity', 'ERP/CRM systems development'])}

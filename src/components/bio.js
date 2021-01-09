@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Styled, IconButton } from 'theme-ui'
+import { jsx, Themed, IconButton } from 'theme-ui'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { useTranslation } from 'react-i18next'
@@ -55,18 +55,18 @@ const Bio = ({ children, ...props }) => {
         }}
         fixed={data.avatar.childImageSharp.fixed}
       />
-      <Styled.h2 sx={{ my: 2 }}>
+      <Themed.h2 sx={{ my: 2 }}>
         {t(['bio:name', 'Vladimir Zhelvis'])}
-      </Styled.h2>
+      </Themed.h2>
       <span sx={{ mb: 2, fontWeight: 'bold' }}>
         {t(['bio:profession', 'Software engineer'])}
       </span>
-      <Styled.a
+      <Themed.a
         sx={{ mb: 2, fontWeight: 'bold' }}
         href={`mailto:${contacts.email}`}
       >
         {contacts.email}
-      </Styled.a>
+      </Themed.a>
       <div sx={{ mb: 2 }}>
         <IconButton as="a" href={contacts.vk} sx={{ mr: 2 }}>
           <VKIcon sx={{ fill: 'primary' }} />

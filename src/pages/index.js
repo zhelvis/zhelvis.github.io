@@ -10,8 +10,8 @@ import Bio from '../components/bio'
 import ThemeButton from '../components/themeButton'
 import LocalePanel from '../components/localePanel'
 
-const BackgroundAnimation = loadable(() =>
-  import('../components/backgroundAnimation')
+const BackgroundAnimation = loadable(
+  () => import('../components/backgroundAnimation')
 )
 
 const Index = () => {

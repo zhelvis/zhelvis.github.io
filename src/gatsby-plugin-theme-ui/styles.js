@@ -1,6 +1,7 @@
 const heading = {
   fontFamily: `heading`,
   lineHeight: `heading`,
+  scrollMarginTop: `4.5rem`,
 }
 
 export default {

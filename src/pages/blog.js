@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Styled, jsx } from 'theme-ui'
+import { Themed, jsx } from 'theme-ui'
 import { Fragment } from 'react'
 import { graphql } from 'gatsby'
 import { LocalizedLink } from 'gatsby-theme-i18n'
@@ -18,7 +18,7 @@ const Blog = ({ data }) => {
         description={t(['blog:description', 'List of blog posts'])}
       />
       <Layout path="/blog/">
-        <Styled.h1>{t(['blog:title', 'Blog'])}</Styled.h1>
+        <Themed.h1>{t(['blog:title', 'Blog'])}</Themed.h1>
         <div sx={{ maxWidth: 768 }}>
           <ul
             className="post-list"
@@ -32,14 +32,15 @@ const Blog = ({ data }) => {
               <li
                 key={`${post.frontmatter.title}`}
                 sx={{
-                  mb: 4,
+                  mb: 3,
+                  variant: 'paper',
                 }}
               >
-                <Styled.h2>
-                  <Styled.a as={LocalizedLink} to={post.frontmatter.slug}>
+                <Themed.h2 sx={{ my: 3 }}>
+                  <Themed.a as={LocalizedLink} to={post.frontmatter.slug}>
                     {post.frontmatter.title}
-                  </Styled.a>
-                </Styled.h2>
+                  </Themed.a>
+                </Themed.h2>
                 <small>
                   <span role="img" aria-label="calendar">
                     📅
@@ -53,7 +54,7 @@ const Blog = ({ data }) => {
                   </span>{' '}
                   <i>{`${post.timeToRead} ${t(['blog:m', 'min read'])}`}</i>
                 </small>
-                <p>{post.frontmatter.foreword}</p>
+                <p sx={{ mt: 3, mb: 0 }}>{post.frontmatter.foreword}</p>
               </li>
             ))}
           </ul>

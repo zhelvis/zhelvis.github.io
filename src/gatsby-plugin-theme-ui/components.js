@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Styled } from 'theme-ui'
+import { jsx, Themed } from 'theme-ui'
 import Prism from '@theme-ui/prism'
 import { MdxLink } from 'gatsby-theme-i18n'
 
@@ -7,9 +7,9 @@ const heading = (Tag) => (props) => {
   if (!props.id) return <Tag {...props} />
   return (
     <Tag {...props}>
-      <Styled.a sx={{ variant: `heading` }} href={`#${props.id}`}>
+      <Themed.a sx={{ variant: `heading` }} href={`#${props.id}`}>
         {props.children}
-      </Styled.a>
+      </Themed.a>
     </Tag>
   )
 }

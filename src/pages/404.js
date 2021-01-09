@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Styled } from 'theme-ui'
+import { jsx, Themed } from 'theme-ui'
 import { Fragment } from 'react'
 import { LocalizedLink } from 'gatsby-theme-i18n'
 import { useTranslation } from 'react-i18next'
@@ -22,16 +22,16 @@ const Index = () => {
           p: 3,
         }}
       >
-        <Styled.h1>404</Styled.h1>
+        <Themed.h1>404</Themed.h1>
         <p>
           {t([
             '404:text',
             'Right now you are on a page that does not exist. Do you exist yourself?',
           ])}
         </p>
-        <Styled.a as={LocalizedLink} to="/">
+        <Themed.a as={LocalizedLink} to="/">
           {t(['404:link', 'Back to home page'])}
-        </Styled.a>
+        </Themed.a>
       </div>
     </Fragment>
   )
