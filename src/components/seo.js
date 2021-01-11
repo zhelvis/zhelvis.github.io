@@ -23,7 +23,7 @@ const SEO = ({ description, title, children }) => {
         name="og:image"
         content={`${site.siteMetadata.siteUrl}/link-image.jpg`}
       />
-      ,{children}
+      {children}
     </Helmet>
   )
 }
